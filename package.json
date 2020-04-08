@@ -1,7 +1,7 @@
 {
   "author": "UIUX Lab",
   "name": "react-app-ssr-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Using react router, axios and express with Server-Side Rendering (SSR).",
   "main": "webpack.config.js",
   "directories": {

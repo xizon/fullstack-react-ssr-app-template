@@ -34,7 +34,7 @@ export default props => {
             <Route
               exact
               path="/"
-              render={props => <Home name="Alligator.io" {...props} />}
+              render={props => <Home {...props} />}
             />
             <Route path="/index" component={Home} />
             <Route path="/todos" component={Todos} />

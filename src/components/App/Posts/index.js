@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 
+if (typeof window === 'undefined') {
+    global.window = {};
+}
+
 
 class Posts extends Component {
 	constructor(props) {
@@ -15,10 +19,12 @@ class Posts extends Component {
 		
 		//init data
 		this.state = {
-			persons: []
+			
 		}
-
+   
 	}
+
+    
 
     /**
      * componentDidMount() is invoked immediately after a component 
@@ -29,21 +35,14 @@ class Posts extends Component {
      */
     componentDidMount() {
         //do shmething
-        axios
-            .get(`/assets/json/modules.json`)
-            .then(res => {
-                const persons = res.data;
-                console.log(persons);
-                this.setState({ persons });
-            });
 
-
-
+ 
     }
 
 
   render() {
-    const { persons } = this.state;
+    const PRELOADED_STATE = window.__PRELOADED_STATE__;
+      
 
     return (
 	  <Fragment>
@@ -51,8 +50,8 @@ class Posts extends Component {
             <div className="content">
               <ul>
                 <li>Default Item</li>
-                { persons.map(item => 
-                 <li>
+                { PRELOADED_STATE.map(item => 
+                 <li key={item.taskID}>
                      {item.taskID}
                  </li>)}
               </ul>
