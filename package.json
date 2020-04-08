@@ -1,0 +1,90 @@
+{
+  "author": "UIUX Lab",
+  "name": "react-app-ssr-starter",
+  "version": "0.0.1",
+  "description": "Using react router, axios and express with Server-Side Rendering (SSR).",
+  "main": "webpack.config.js",
+  "directories": {
+    "example": "public"
+  },
+  "scripts": {
+    "watch": "webpack --watch",
+    "dev": "nodemon --require ignore-styles --exec babel-node src/server.js",
+    "build": "webpack --mode production",
+    "prettier": "prettier \"./dist/css/app.css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "react-app-ssr-starter"
+  },
+  "keywords": [
+    "react",
+    "axios",
+    "route",
+    "ssr",
+    "express",
+    "webdesign",
+    "webpack"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xizon/react-app-ssr-starter/issues"
+  },
+  "homepage": "https://github.com/xizon/react-app-ssr-starter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@node-minify/core": "^4.0.2",
+    "@node-minify/uglify-js": "^4.0.2",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^1.0.0",
+    "compression": "^1.7.4",
+    "css-loader": "^2.0.1",
+    "ejs": "^3.0.2",
+    "html-loader": "^0.5.5",
+    "ignore-styles": "^5.0.1",
+    "include-file-webpack-plugin": "^1.0.3",
+    "json-loader": "^0.5.7",
+    "log-timestamp": "^0.2.1",
+    "mini-css-extract-plugin": "^0.5.0",
+    "moment": "^2.23.0",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "prettier": "^1.15.3",
+    "prettier-loader": "^2.1.1",
+    "random-string": "^0.2.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^5.1.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "tar": "^4.4.8",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.27.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-concat-plugin": "^3.0.0",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {},
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "avoid",
+    "requirePragma": false,
+    "proseWrap": "preserve"
+  }
+}
