@@ -1,7 +1,7 @@
 /*!
  * 
  * ## Project Name        :  React App SSR Starter
- * ## Version             :  0.0.1
+ * ## Version             :  0.0.2
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
  * ## Last Update         :  April 9, 2020
  * ## Created by          :  UIUX Lab (https://uiux.cc)
