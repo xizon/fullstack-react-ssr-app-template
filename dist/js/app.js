@@ -1,7 +1,7 @@
 /*!
  * 
  * ## Project Name        :  React App SSR Starter
- * ## Version             :  0.0.2
+ * ## Version             :  0.0.3
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
  * ## Last Update         :  April 9, 2020
  * ## Created by          :  UIUX Lab (https://uiux.cc)
@@ -1690,10 +1690,10 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var PRELOADED_STATE = window.__PRELOADED_STATE__;
+      var preloadedState = window.__PRELOADED_STATE__;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Default Item"), PRELOADED_STATE.map(function (item) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Default Item"), preloadedState.map(function (item) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: item.taskID
         }, item.taskID);
@@ -5536,7 +5536,7 @@ if (false) { var ariaCurrentType; }
 
 //# sourceMappingURL=react-router-dom.js.map
 
-// CONCATENATED MODULE: ./src/components/App/Home/index.js
+// CONCATENATED MODULE: ./src/client/components/App/Home/index.js
 
 /* harmony default export */ var Home = (function (_ref) {
   var _ref$staticContext = _ref.staticContext,
@@ -5546,10 +5546,10 @@ if (false) { var ariaCurrentType; }
     className: "content"
   }, react_default.a.createElement("h1", null, "Home!")));
 });
-// EXTERNAL MODULE: ./src/components/App/Posts/index.js
+// EXTERNAL MODULE: ./src/client/components/App/Posts/index.js
 var Posts = __webpack_require__(18);
 
-// CONCATENATED MODULE: ./src/components/App/Todos/index.js
+// CONCATENATED MODULE: ./src/client/components/App/Todos/index.js
 
 /* harmony default export */ var Todos = (function (_ref) {
   var _ref$staticContext = _ref.staticContext,
@@ -5559,10 +5559,10 @@ var Posts = __webpack_require__(18);
     className: "content"
   }, react_default.a.createElement("h1", null, "Todos!")));
 });
-// EXTERNAL MODULE: ./src/components/App/styles.scss
+// EXTERNAL MODULE: ./src/client/components/App/styles.scss
 var styles = __webpack_require__(43);
 
-// CONCATENATED MODULE: ./src/components/App/index.js
+// CONCATENATED MODULE: ./src/client/components/App/index.js
 
 
 
@@ -5571,7 +5571,7 @@ var styles = __webpack_require__(43);
 
 /* harmony default export */ var App = (function (props) {
   return react_default.a.createElement(react["Fragment"], null, react_default.a.createElement("nav", null, react_default.a.createElement("ul", null, react_default.a.createElement("li", null, react_default.a.createElement(NavLink, {
-    to: "/"
+    to: "/index"
   }, "Home")), react_default.a.createElement("li", null, react_default.a.createElement(NavLink, {
     to: "/todos"
   }, "Todos")), react_default.a.createElement("li", null, react_default.a.createElement(NavLink, {
@@ -5593,17 +5593,17 @@ var styles = __webpack_require__(43);
     component: Posts["a" /* default */]
   })));
 });
-// EXTERNAL MODULE: ./src/components/_global/styles.scss
+// EXTERNAL MODULE: ./src/client/components/_global/styles.scss
 var _global_styles = __webpack_require__(48);
 
-// CONCATENATED MODULE: ./src/components/_global/index.js
+// CONCATENATED MODULE: ./src/client/components/_global/index.js
 
 
 
 
 
 react_dom_default.a.hydrate(react_default.a.createElement(react_router_dom_BrowserRouter, null, react_default.a.createElement(App, null)), document.getElementById('app'));
-// CONCATENATED MODULE: ./src/index.js
+// CONCATENATED MODULE: ./src/client/client.js
 
 
 /***/ })

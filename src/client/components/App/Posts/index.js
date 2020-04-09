@@ -41,7 +41,7 @@ class Posts extends Component {
 
 
   render() {
-    const PRELOADED_STATE = window.__PRELOADED_STATE__;
+    const preloadedState = window.__PRELOADED_STATE__;
       
 
     return (
@@ -50,7 +50,7 @@ class Posts extends Component {
             <div className="content">
               <ul>
                 <li>Default Item</li>
-                { PRELOADED_STATE.map(item => 
+                { preloadedState.map(item => 
                  <li key={item.taskID}>
                      {item.taskID}
                  </li>)}

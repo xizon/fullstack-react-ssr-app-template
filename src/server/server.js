@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 // View engine setup
 // Implementing Server Side Rendering using React and Express
 //console.log(__dirname);
-app.set('views', path.join(__dirname,'../public'));
+app.set('views', path.join(__dirname,'../../public'));
 app.set('view engine', 'ejs');
 
 

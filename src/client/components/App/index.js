@@ -13,7 +13,7 @@ export default props => {
           <nav>
               <ul>
                 <li>
-                  <NavLink to="/">Home</NavLink>
+                  <NavLink to="/index">Home</NavLink>
                 </li>
                 <li>
                   <NavLink to="/todos">Todos</NavLink>

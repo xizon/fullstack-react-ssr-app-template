@@ -1,4 +1,6 @@
 nav {
+    display: block;
+    margin-bottom: 50px;
    
     ul {
         list-style: none;
@@ -12,6 +14,15 @@ nav {
             text-decoration: none;
             font-size: 16px;
             text-transform: uppercase;
+            
+            border: 1px solid rgba(0,0,0,0);   
+            padding: .5rem 1rem;         
+            
+            &.active {
+                background: #F7F6F0;
+                border: 1px solid #EFE4E5;   
+                padding: .5rem 1rem;
+            }
         }
     }
     

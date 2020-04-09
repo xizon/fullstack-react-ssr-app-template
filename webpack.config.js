@@ -52,7 +52,7 @@ const colors = {
 let globs = {
 	port                : 8080,
 	examples            : 'public',
-	build               : 'src',
+	build               : 'src/client',
 	dist                : 'dist'
 };
 
@@ -208,8 +208,8 @@ const webpackConfig = {
 //    },
 	
 	entry: {
-		'app': './'+globs.build+'/index.js',
-		'app.min': './'+globs.build+'/index.js'
+		'app': './'+globs.build+'/client.js',
+		'app.min': './'+globs.build+'/client.js'
 	},
     output: {
         path: path.resolve(__dirname, './' + globs.dist + '/js' ),

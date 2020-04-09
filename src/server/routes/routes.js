@@ -1,18 +1,16 @@
-import App from '../components/App';
-import Home from '../components/App/Home';
-import Posts from '../components/App/Posts';
-import Todos from '../components/App/Todos';
+import App from '../../client/components/App';
+import Home from '../../client/components/App/Home';
+import Posts from '../../client/components/App/Posts';
+import Todos from '../../client/components/App/Todos';
 
 
 const Routes = [
   {
     path: '/',
-    exact: true,
     component: Home
   },
   {
     path: '/index',
-    exact: true,
     component: Home
   },
   {

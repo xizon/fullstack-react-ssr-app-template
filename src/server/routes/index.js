@@ -1,6 +1,5 @@
 import express from 'express';
 import path from 'path';
-import axios from 'axios';
 const router = express.Router();
 
 
@@ -13,10 +12,11 @@ router.use('/dist', express.static( 'dist' ));
 
 //Fixing the "cannot GET /URL" error on refresh with React Router 
 //and Reach Router (or how client side routers work)
+import axios from 'axios';
 import fs from 'fs';
 import React from 'react';
 import {renderToString} from 'react-dom/server';
-import App from '../components/App';
+import App from '../../client/components/App';
 import { StaticRouter } from 'react-router-dom';;
 
 import Routes from './routes.js';
@@ -47,14 +47,20 @@ router.get('/*', async (req, res) => {
 
                     // Let's add the data to the context
                     const state = JSON.stringify( ajaxRes.data );
-                    const context = {};
+                   
+                    // Let's add the data to the context
+                    const context = {
+                        "status": ajaxRes.status
+                    };
+                
+                
                     const template = renderToString(
                         <StaticRouter location={req.url} context={context}>
                             <App />
                         </StaticRouter>
                     );
 
-                    const indexFile = path.join(__dirname,'../../public/index.ejs');
+                    const indexFile = path.join(__dirname,'../../../public/index.ejs');
                     fs.readFile(indexFile, 'utf8', (err, data) => {
 
                         if (err) {
@@ -62,6 +68,11 @@ router.get('/*', async (req, res) => {
                             return res.status(500).send('Oops, better luck next time!');
                         }
 
+                        if (context.status === 404) {
+                            res.status(404);
+                        }
+                       
+                        
                         res.status(200).render('index', {reactApp: template, preloadedState: state});
 
                     });
