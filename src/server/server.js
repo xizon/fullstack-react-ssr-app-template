@@ -34,8 +34,9 @@ app.use('/', router);
 
 
 // Add listen handler
+// After installing Nginx, the key is how to configure Nginx reverse proxy
 app.listen(port, function listenHandler() {
-    console.info(`Running on ${port}`)
+    console.info(`Open Browser http://localhost:${port}`);
 });
 
 

@@ -17,6 +17,8 @@ import fs from 'fs';
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import App from '../../client/components/App';
+
+// There is no {BrowserRouter} on the server, so {StaticRouter} is used
 import { StaticRouter } from 'react-router-dom';;
 
 import Routes from './routes.js';
@@ -27,6 +29,9 @@ if (typeof window === 'undefined') {
 }
 
 
+
+// Map to the path after `public`
+// Set the file path after `public`. The project goes online
 router.get('/*', async (req, res) => {
 
     
