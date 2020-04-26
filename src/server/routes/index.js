@@ -42,49 +42,76 @@ router.get('/*', async (req, res) => {
             
             curRoute = route.path;
       
+            axios({
+              timeout: 15000,
+              method: 'get',
+              url: '/assets/json/modules.json',
+              responseType: 'json',
+              proxy: { host: 'localhost', port: 3000 }
+            }).then(function (ajaxRes) {
 
-            axios
-                .get(`/assets/json/modules.json`, { proxy: { host: 'localhost', port: 3000 } })
-                .then(ajaxRes => {
-                
-                    window.__PRELOADED_STATE__ = ajaxRes.data;
+                window.__PRELOADED_STATE__ = ajaxRes.data;
 
 
-                    // Let's add the data to the context
-                    const state = JSON.stringify( ajaxRes.data );
-                   
-                    // Let's add the data to the context
-                    const context = {
-                        "status": ajaxRes.status
-                    };
-                
-                
-                    const template = renderToString(
-                        <StaticRouter location={req.url} context={context}>
-                            <App />
-                        </StaticRouter>
-                    );
+                // Let's add the data to the context
+                const state = JSON.stringify( ajaxRes.data );
 
-                    const indexFile = path.join(__dirname,'../../../public/index.ejs');
-                    fs.readFile(indexFile, 'utf8', (err, data) => {
+                // Let's add the data to the context
+                const context = {
+                    "status": ajaxRes.status
+                };
 
-                        if (err) {
-                            console.error('Something went wrong:', err);
-                            return res.status(500).send('Oops, better luck next time!');
-                        }
 
-                        if (context.status === 404) {
-                            res.status(404);
-                        }
-                       
-                        
-                        res.status(200).render('index', {reactApp: template, preloadedState: state});
+                const template = renderToString(
+                    <StaticRouter location={req.url} context={context}>
+                        <App />
+                    </StaticRouter>
+                );
 
-                    });
-                
+                const indexFile = path.join(__dirname,'../../../public/index.ejs');
+                fs.readFile(indexFile, 'utf8', (err, data) => {
+
+                    if (err) {
+                        console.error('Something went wrong:', err);
+                        return res.status(500).send('Oops, better luck next time!');
+                    }
+
+                    if (context.status === 404) {
+                        res.status(404);
+                    }
+
+
+                    res.status(200).render('index', {reactApp: template, preloadedState: state});
+
                 });
- 
-            
+
+
+
+            })
+            .catch(function (error) {
+
+                if (error.response) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    const status = error.response.status;
+                    console.log(status);
+
+
+
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                    // http.ClientRequest in node.js
+                    console.log(error.request);
+
+                    //
+                } else {
+                    // If there was a problem, we need to
+                    // dispatch the error condition
+                    console.log(error.message);
+                }
+            });
+
 
             
         }

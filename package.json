@@ -1,12 +1,13 @@
 {
   "author": "UIUX Lab",
   "name": "react-app-ssr-starter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Using react router, axios and express with Server-Side Rendering (SSR).",
   "main": "webpack.config.js",
   "directories": {
     "example": "public"
   },
+  "proxy": "http://localhost:3000",
   "scripts": {
     "watch": "webpack --watch",
     "dev": "nodemon --require ignore-styles --exec babel-node src/server/server.js",
@@ -46,6 +47,7 @@
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^1.0.0",
     "compression": "^1.7.4",
+    "cors": "^2.8.5",
     "css-loader": "^2.0.1",
     "ejs": "^3.0.2",
     "html-loader": "^0.5.5",

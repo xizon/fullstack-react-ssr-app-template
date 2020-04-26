@@ -1,6 +1,12 @@
 # Changelog
 
 
+#### = 0.0.4 (April 24, 2020) =
+
+* Add Simple React Login Form.
+
+
+
 #### = 0.0.3 (April 9, 2020) =
 
 * Adjusted the place of global variables.

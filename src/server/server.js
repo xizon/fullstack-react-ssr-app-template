@@ -28,6 +28,12 @@ app.use('/', function(req, res, next){
 
 
 
+
+// use it before all route definitions
+const cors = require('cors');
+app.use(cors({origin: '*' }));
+
+
 // Routes
 app.use('/', router);
 
