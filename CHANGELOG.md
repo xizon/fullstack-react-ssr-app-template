@@ -1,5 +1,9 @@
 # Changelog
 
+#### = 0.0.5 (April 27, 2020) =
+
+* Using Redux with server rendering.
+
 
 #### = 0.0.4 (April 24, 2020) =
 

@@ -1,12 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import axios from 'axios';
-
-if (typeof window === 'undefined') {
-    global.window = {};
-}
+import LoginPage from './LoginPage';
 
 
-class Posts extends Component {
+class Todos extends Component {
 	constructor(props) {
 
 		//You are extending the React.Component class, and per the ES2015 spec, 
@@ -41,20 +37,12 @@ class Posts extends Component {
 
 
   render() {
-    const preloadedState = window.__PRELOADED_STATE__;
-      
 
     return (
 	  <Fragment>
 		
             <div className="content">
-              <ul>
-                <li>Default Item</li>
-                { preloadedState.map(item => 
-                 <li key={item.taskID}>
-                     {item.taskID}
-                 </li>)}
-              </ul>
+               <LoginPage />
             </div>
        
           
@@ -65,4 +53,4 @@ class Posts extends Component {
     
 }
 
-export default Posts;
+export default Todos;

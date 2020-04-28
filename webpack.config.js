@@ -151,23 +151,7 @@ class ReplacePlaceholderForFile {
 							}
 							//file written successfully
 							console.log(colors.fg.Green, `${filepath} written successfully!`, colors.Reset);
-                            
-                            
-    
-                            // Generate SSR template file to `public`
-                            const SSRTempFile = `./${globs.examples}/index.ejs`;
-                            fs.copyFile(filepath, SSRTempFile, function (err) {
-
-                                if ( err ) {
-                                    console.log(colors.bg.Red, colors.fg.White, err, colors.Reset);
-                                } else {
-                                    console.log(colors.fg.Green, `${SSRTempFile} copied to [public] folder successfully!`, colors.Reset);
-                                    
-                                }
-
-                            });
-
-
+              
          
                             
 

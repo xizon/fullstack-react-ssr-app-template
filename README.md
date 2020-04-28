@@ -116,7 +116,6 @@ react-app-ssr-starter/
 ├── package-lock.json
 ├── package.json
 ├── public/
-│   ├── index.ejs
 │   ├── index.html
 │   └── assets/
 ├── dist/
@@ -133,10 +132,15 @@ react-app-ssr-starter/
 ├── src/
 │   ├── client/
 │   │   ├── client.js
+│   │   ├── actions/
+│   │   ├── reducers/
+│   │   ├── router/
 │   │   └── components/
 │   └── server/
 │   │   ├── server.js
-│   │   └── routes/
+│   │   └── renderer.js
+│   └── store/
+│   │   └── createStore.js
 └──
 ```
 

@@ -1,7 +1,7 @@
 {
   "author": "UIUX Lab",
   "name": "react-app-ssr-starter",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Using react router, axios and express with Server-Side Rendering (SSR).",
   "main": "webpack.config.js",
   "directories": {
@@ -25,7 +25,8 @@
     "ssr",
     "express",
     "webdesign",
-    "webpack"
+    "webpack",
+    "redux"
   ],
   "license": "MIT",
   "bugs": {
@@ -36,6 +37,7 @@
     "@babel/core": "^7.2.0",
     "@babel/node": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-flow": "^7.0.0",
@@ -49,7 +51,6 @@
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "css-loader": "^2.0.1",
-    "ejs": "^3.0.2",
     "html-loader": "^0.5.5",
     "ignore-styles": "^5.0.1",
     "include-file-webpack-plugin": "^1.0.3",
@@ -65,7 +66,11 @@
     "random-string": "^0.2.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-redux": "^7.2.0",
+    "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "tar": "^4.4.8",

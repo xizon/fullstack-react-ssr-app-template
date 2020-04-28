@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
-import Home from './Home';
-import Posts from './Posts';
-import Todos from './Todos';
+import Home from '../pages/Home';
+import Posts from '../pages/Posts';
+import Todos from '../pages/Todos';
 
 import './styles.scss';
 

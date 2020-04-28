@@ -17,6 +17,7 @@ Hi, there!
 
 React App SSR Starter bundles the following third-party resources:
 
+- [redux](https://redux.js.org/)
 - [nodemon](https://nodemon.io/)
 - [React](https://reactjs.org/)
 - [Babel](https://babeljs.io/)
