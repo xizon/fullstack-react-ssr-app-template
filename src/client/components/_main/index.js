@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 import Home from '../pages/Home';
 import Posts from '../pages/Posts';
+import PostDetail from '../pages/Posts/PostDetail';
 import Todos from '../pages/Todos';
 
 import './styles.scss';
@@ -39,6 +40,7 @@ export default props => {
             <Route path="/index" component={Home} />
             <Route path="/todos" component={Todos} />
             <Route path="/posts" component={Posts} />
+            <Route path="/post-detail/:post_id" component={PostDetail} />
           </Switch>
       </Fragment>
     );

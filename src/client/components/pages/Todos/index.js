@@ -12,15 +12,9 @@ class Todos extends Component {
 		super(props);
 		//console.log(this.props) //props will get logged.
 
-		
-		//init data
-		this.state = {
-			
-		}
    
 	}
 
-    
 
     /**
      * componentDidMount() is invoked immediately after a component 

@@ -4,9 +4,7 @@ export const fetchDemoListDetail = ( id ) => {
     
     return async (dispatch) => {
         
-        dispatch({ type: 'REQUEST_DEMO_LISTDETAIL' });
-        
-        const res = await axios.get( `/assets/json/your_api_url?id=${id}` );
+        const res = await axios.get( `https://restcountries.eu/rest/v2/name/${id}` );
         dispatch({ type: 'RECEIVE_DEMO_LISTDETAIL', payload: res.data });   
 
     }

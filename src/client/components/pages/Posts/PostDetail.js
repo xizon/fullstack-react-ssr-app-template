@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
-import { fetchDemoList } from '../../../actions/demoListActions';
-import PostItem from './PostItem';
-         
-class Posts extends Component {
+import { fetchDemoListDetail } from '../../../actions/demoListDetailActions';
 
+
+class PostDetail extends Component {
 	constructor(props) {
 
 		//You are extending the React.Component class, and per the ES2015 spec, 
@@ -14,12 +13,15 @@ class Posts extends Component {
 		super(props);
 		//console.log(this.props) //props will get logged.
 
+
    
 	}
+
+    static fetching ({ dispatch, path }) {
+        let currentID = path.split( '/' ).pop();
+        return [ dispatch( fetchDemoListDetail( currentID ) ) ];
+    }
     
-    static fetching ({ dispatch }) {
-        return [ dispatch( fetchDemoList() ) ];
-    } 
 
     /**
      * componentDidMount() is invoked immediately after a component 
@@ -29,10 +31,9 @@ class Posts extends Component {
      * is a good place to instantiate the network request.
      */
     componentDidMount() {
-   
+
         // Request data
-        this.props.dispatch(fetchDemoList());
-   
+        this.props.dispatch(fetchDemoListDetail( this.props.match.params.post_id ));
         
     }
 
@@ -40,7 +41,7 @@ class Posts extends Component {
   render() {
     // Bind data and display
     const preloadedState = this.props.currentData;
-
+ 
     if ( preloadedState == null ) {
         console.log( 'preloadedState: null' );
     } else {
@@ -51,9 +52,26 @@ class Posts extends Component {
 	  <Fragment>
    
             <div className="content">
-                 {
-                   ( preloadedState != null ) ? preloadedState.map((item, i) => <PostItem key={i} {...item} />) : ""
-                  }
+                { 
+                ( preloadedState != null ) ? preloadedState.map((item, i) => 
+                                                                
+                      <div key={"detail"+i} style={{padding: "15px", margin: "10px", display: "inline-block", border: "1px solid #ddd", width: "420px", textAlign: "left", position: "relative"}}>
+                        
+                            <img src={item.flag} alt="" style={{width: "400px", display: "inline-block" }} />
+                            <hr />
+                            <p><strong>Name: </strong>{item.name}</p>
+                            <p><strong>Capital: </strong>{item.Capital}</p>
+                            <p><strong>Population: </strong>{item.population}</p>
+                            <p><strong>Subregion: </strong>{item.subregion}</p>
+                            <p><strong>Languages: </strong></p>   
+                            <div>
+                                {item.languages.map((lanItem, k) => <span key={"lan"+k}>{lanItem.name}</span>)}
+                            </div>
+                                                               
+                      </div>  )
+                 : ""
+                }
+        
             </div>
        
           
@@ -69,7 +87,7 @@ class Posts extends Component {
 // here (for details of the data structure: initState)
 const mapStateToProps = (state) => {
     return {
-        currentData: state.listData.items
+        currentData: state.listDetailData.detail
     }
 };
 
@@ -87,6 +105,6 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps, 
     mapDispatchToProps
-)(Posts);
+)(PostDetail);
 
 

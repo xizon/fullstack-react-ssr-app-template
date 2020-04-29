@@ -1,11 +1,8 @@
 import {combineReducers} from 'redux';
-
 import demoListReducer from './demoListReducer';
 import demoListDetailReducer from './demoListDetailReducer';
 
-const appReducer = combineReducers({
+export default combineReducers({
     listData: demoListReducer,
-    listDetailData: demoListDetailReducer,
+    listDetailData: demoListDetailReducer
 });
-
-export default appReducer;

@@ -1,5 +1,10 @@
 # Changelog
 
+#### = 0.0.52 (April 29, 2020) =
+
+* Further optimize SSR performance.
+
+
 #### = 0.0.5 (April 27, 2020) =
 
 * Using Redux with server rendering.

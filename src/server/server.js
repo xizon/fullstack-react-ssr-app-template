@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { matchRoutes } from 'react-router-config';
 import render from './renderer';
 import Routes from '../client/router/routes';
-import store from '../store/createStore';
+import createNewStore from '../store/createStore';
 
 //
 import compression from 'compression';
@@ -31,15 +31,15 @@ const app = express();
 
 // Middleware
 function shouldCompress(req, res) {
-  if (req.headers['x-no-compression']) return false;
-  return compression.filter(req, res);
+    if (req.headers['x-no-compression']) return false;
+    return compression.filter(req, res);
 }
 
 app.use(
-  compression({
-    level: 2, // set compression level from 1 to 9 (6 by default)
-    filter: shouldCompress // set predicate to determine whether to compress
-  })
+    compression({
+        level: 2, // set compression level from 1 to 9 (6 by default)
+        filter: shouldCompress // set predicate to determine whether to compress
+    })
 );
 
 app.use(express.static( '/dist' ));
@@ -61,57 +61,62 @@ app.use(cors({origin: '*' }));
 
 app.get('*', async (req, res) => {
 
-  const params = req.params[0].split('/');
-  const id = params[2];
+
+    // We create store before rendering html
+    const store = createNewStore();
+
     
+    // Checks the given path, matches with component and returns array of items about to be rendered
+    const routes = matchRoutes(Routes, req.path);
+    console.log( routes );
+    
+    // Execute all `fetching` functions inside given urls and wrap promises with new promises to be able to render pages all the time
+    // Even if we get an error while loading data, we will still attempt to render page.
+    const actions = routes
+                        .map(({ route }) => {
+                            //console.log( 'route.component.fetching: ' );
+                            //console.log( route.component.fetching );
+                            return route.component.fetching ? route.component.fetching({...store, path: req.path }) : null;
+                        })
+                        .map(async actions => await Promise.all(
+                                (actions || []).map(p => p && new Promise(resolve => p.then(resolve).catch(resolve)))
+                            )
+                        );
 
-  // Checks the given path, matches with component and returns array of items about to be rendered
-  const routes = matchRoutes(Routes, req.path);
-
-  // Execute all loadData functions inside given urls and wrap promises with new promises to be able to render pages all the time
-  // Even if we get an error while loading data, we will still attempt to render page.
-  const promises = routes
-    .map(({ route }) => {
-      return route.loadData ? route.loadData(store, id) : null;
-    })
-    .map(promise => {
-      if (promise) {
-        return new Promise((resolve, reject) => {
-          promise.then(resolve).catch(resolve);
-        });
-      }
-      return null;
-    });
     
     
     //read template
     const indexFile = path.join(__dirname,'../../public/index.html');
-    promises.push(new Promise(function(resolve, reject){
-        fs.readFile(indexFile, 'utf8', (err, data) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data);
-            }
-        });
-    }));
+    actions.push(
+        new Promise(function(resolve, reject){
+            fs.readFile(indexFile, 'utf8', (err, data) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(data);
+                }
+            });
+        })
+    );
+
+
+    // Wait for all the `fetching` functions, if they are resolved, send the rendered html to browser.
+    await  Promise.all( actions ).then(( data ) => {
+        const templateCode = data.slice(-1).pop(); //get last item
+        const context = {};
+        const content = render(req.path, store, context, templateCode);
+
+        if (context.notFound) {
+            res.status(404);
+        }
+
+        res.send(content);
+    });
     
 
-  // Wait for all the loadData functions, if they are resolved, send the rendered html to browser.
-  Promise.all(promises).then(( data ) => {
-    const templateCode = data[1];
-    const context = {};
-    const content = render(req.path, store, context, templateCode);
-
-    if (context.notFound) {
-      res.status(404);
-    }
-
-    res.send(content);
-  });
-    
 
 });
 
 app.listen(port, () => console.log(`Frontend service listening on port: ${port}`));
+
 

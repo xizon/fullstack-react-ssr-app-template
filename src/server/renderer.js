@@ -18,8 +18,11 @@ export default (pathname, store, context, template) => {
         </Provider>
     );
 
-    template = template.replace('{{reactApp}}', content )
-                       .replace('{{preloadedState}}', JSON.stringify(store.getState()) );
+    if ( template != null && template != '' && typeof template != typeof undefined ) {
+        template = template.replace('{{reactApp}}', content )
+                           .replace('{{preloadedState}}', JSON.stringify(store.getState()) );  
+    }
+
    
     return template;
 

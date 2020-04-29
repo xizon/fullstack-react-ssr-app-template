@@ -34,7 +34,7 @@ Using react router, axios and express with Server-Side Rendering (SSR). This pro
 
 ## Installation And Test
 
-You will need to have [node](https://nodejs.org/) setup on your machine. That will output the built distributables to `./dist/*` and `./public/*[.html|.ejs]`.
+You will need to have [node](https://nodejs.org/) setup on your machine. That will output the built distributables to `./dist/*` and `./public/*.html`.
 
 
 **Step 1.** Use NPM (Locate your current directory of project, and enter the following command.) or download the latest version from [Github](https://github.com/xizon/react-app-ssr-starter). For nodejs you have to install some dependencies.
