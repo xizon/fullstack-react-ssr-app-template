@@ -1,8 +1,9 @@
 # Changelog
 
-#### = 0.0.52 (April 29, 2020) =
+#### = 0.0.6 (April 30, 2020) =
 
 * Further optimize SSR performance.
+* Handling 404 pages (catch all routes).
 
 
 #### = 0.0.5 (April 27, 2020) =

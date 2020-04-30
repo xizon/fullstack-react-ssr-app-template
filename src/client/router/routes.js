@@ -4,6 +4,7 @@ import Posts from '../components/pages/Posts';
 import PostDetail from '../components/pages/Posts/PostDetail';
 import Todos from '../components/pages/Todos';
 
+
 export default [
   {
     component: App,

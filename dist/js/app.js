@@ -1,7 +1,7 @@
 /*!
  * 
  * ## Project Name        :  React App SSR Starter
- * ## Version             :  0.0.52
+ * ## Version             :  0.0.6
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
  * ## Last Update         :  April 30, 2020
  * ## Created by          :  UIUX Lab (https://uiux.cc)
@@ -9116,10 +9116,21 @@ function (_Component) {
 }(react["Component"]);
 
 /* harmony default export */ var pages_Todos = (Todos_Todos);
+// CONCATENATED MODULE: ./src/client/components/pages/404/index.js
+
+/* harmony default export */ var _404 = (function (_ref) {
+  var _ref$staticContext = _ref.staticContext,
+      staticContext = _ref$staticContext === void 0 ? {} : _ref$staticContext;
+  staticContext.status = 404;
+  return react_default.a.createElement(react["Fragment"], null, react_default.a.createElement("div", {
+    className: "content"
+  }, react_default.a.createElement("h3", null, "404 - Not found")));
+});
 // EXTERNAL MODULE: ./src/client/components/_main/styles.scss
 var styles = __webpack_require__(62);
 
 // CONCATENATED MODULE: ./src/client/components/_main/index.js
+
 
 
 
@@ -9134,7 +9145,9 @@ var styles = __webpack_require__(62);
     to: "/todos"
   }, "Todos")), react_default.a.createElement("li", null, react_default.a.createElement(NavLink, {
     to: "/posts"
-  }, "Posts")))), react_default.a.createElement(react_router_Switch, null, react_default.a.createElement(react_router_Route, {
+  }, "Posts")), react_default.a.createElement("li", null, react_default.a.createElement(NavLink, {
+    to: "/errorpage"
+  }, "404")))), react_default.a.createElement(react_router_Switch, null, react_default.a.createElement(react_router_Route, {
     exact: true,
     path: "/",
     render: function render(props) {
@@ -9152,6 +9165,8 @@ var styles = __webpack_require__(62);
   }), react_default.a.createElement(react_router_Route, {
     path: "/post-detail/:post_id",
     component: Posts_PostDetail
+  }), react_default.a.createElement(react_router_Route, {
+    component: _404
   })));
 });
 // CONCATENATED MODULE: ./src/client/router/routes.js

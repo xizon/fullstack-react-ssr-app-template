@@ -4,6 +4,8 @@ import Home from '../pages/Home';
 import Posts from '../pages/Posts';
 import PostDetail from '../pages/Posts/PostDetail';
 import Todos from '../pages/Todos';
+import NoMatchPage from '../pages/404';
+
 
 import './styles.scss';
 
@@ -21,6 +23,9 @@ export default props => {
                 </li>
                 <li>
                   <NavLink to="/posts">Posts</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/errorpage">404</NavLink>
                 </li>
               </ul>
 
@@ -41,6 +46,7 @@ export default props => {
             <Route path="/todos" component={Todos} />
             <Route path="/posts" component={Posts} />
             <Route path="/post-detail/:post_id" component={PostDetail} />
+            <Route component={NoMatchPage} />
           </Switch>
       </Fragment>
     );
