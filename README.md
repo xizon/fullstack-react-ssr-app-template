@@ -26,7 +26,7 @@ Server runs on `http://localhost:3000/index`
 
 ## Description
 
-Using react router, axios and express with Server-Side Rendering (SSR). This project was bootstrapped with nodejs library. 
+Using react, redux, router, axios and express with Server-Side Rendering (SSR). This project was bootstrapped with nodejs library. 
 
 
 * * *
