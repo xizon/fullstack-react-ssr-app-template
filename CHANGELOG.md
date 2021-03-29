@@ -1,8 +1,9 @@
 # Changelog
 
-#### = 0.0.7 (March 29, 2021) =
+#### = 0.0.72 (March 29, 2021) =
 
 * Set React Router Default Route Redirect to /index.
+* Modify the server-side command `npm run dev` to `npm run server`.
 
 
 

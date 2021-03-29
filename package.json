@@ -1,7 +1,7 @@
 {
   "author": "UIUX Lab",
   "name": "react-app-ssr-starter",
-  "version": "0.0.7",
+  "version": "0.0.72",
   "description": "Using react, redux, router, axios and express with Server-Side Rendering (SSR).",
   "main": "webpack.config.js",
   "directories": {
@@ -10,7 +10,7 @@
   "proxy": "http://localhost:3000",
   "scripts": {
     "watch": "webpack --watch",
-    "dev": "nodemon --require ignore-styles --exec babel-node src/server/server.js",
+    "server": "nodemon --require ignore-styles --exec babel-node src/server/server.js",
     "build": "webpack --mode production",
     "prettier": "prettier \"./dist/css/app.css\""
   },

@@ -73,10 +73,10 @@ $ npm run build
 **Step 5.** Using `Ctrl + C` to stop webpack.
 
 
-**Step 6.** Run the Express server only.
+**Step 6.** Finally, let's enter the code below. You can see that the server is running. (Run the Express server only.)
 
 ```sh
-$ npm run dev
+$ npm run server
 ```
 
 
