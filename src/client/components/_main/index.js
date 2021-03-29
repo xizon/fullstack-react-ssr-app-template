@@ -1,5 +1,10 @@
 import React, { Fragment } from 'react';
-import { Route, Switch, NavLink } from 'react-router-dom';
+import {
+	Route, 
+	Switch, 
+	NavLink,
+	Redirect
+} from "react-router-dom";
 import Home from '../pages/Home';
 import Posts from '../pages/Posts';
 import PostDetail from '../pages/Posts/PostDetail';
@@ -35,13 +40,31 @@ export default props => {
             {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. 
                 The express configuration associated with the file webpack.config.js
-            */}
+            */
+			/*
+			
+			Directly display the content of the homepage component when there is no redirect.
+
+			<Route
+			  exact
+			  path="/"
+			  render={props => <Home {...props} />}
+			/>
+			*/
+		     }
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={props => <Home {...props} />}
-            />
+
+		      /* Set React Router Default Route Redirect to `/index` */
+              <Route
+                exact
+                path="/"
+                render={(props) => {
+                    return (
+                      <Redirect to="/index" />
+                    )
+                }}
+              />
+		
             <Route path="/index" component={Home} />
             <Route path="/todos" component={Todos} />
             <Route path="/posts" component={Posts} />

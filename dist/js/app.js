@@ -1,9 +1,9 @@
 /*!
  * 
  * ## Project Name        :  React App SSR Starter
- * ## Version             :  0.0.62
+ * ## Version             :  0.0.7
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
- * ## Last Update         :  September 14, 2020
+ * ## Last Update         :  March 29, 2021
  * ## Created by          :  UIUX Lab (https://uiux.cc)
  * ## Contact Us          :  uiuxlab@gmail.com
  * 	
@@ -9190,11 +9190,13 @@ var styles = __webpack_require__(62);
     to: "/posts"
   }, "Posts")), /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
     to: "/errorpage"
-  }, "404")))), /*#__PURE__*/react_default.a.createElement(react_router_Switch, null, /*#__PURE__*/react_default.a.createElement(react_router_Route, {
+  }, "404")))), /*#__PURE__*/react_default.a.createElement(react_router_Switch, null, "/* Set React Router Default Route Redirect to `/index` */", /*#__PURE__*/react_default.a.createElement(react_router_Route, {
     exact: true,
     path: "/",
     render: function render(props) {
-      return /*#__PURE__*/react_default.a.createElement(Home, props);
+      return /*#__PURE__*/react_default.a.createElement(Redirect, {
+        to: "/index"
+      });
     }
   }), /*#__PURE__*/react_default.a.createElement(react_router_Route, {
     path: "/index",

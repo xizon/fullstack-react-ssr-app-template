@@ -1,5 +1,11 @@
 # Changelog
 
+#### = 0.0.7 (March 29, 2021) =
+
+* Set React Router Default Route Redirect to /index.
+
+
+
 #### = 0.0.6 (April 30, 2020) =
 
 * Further optimize SSR performance.

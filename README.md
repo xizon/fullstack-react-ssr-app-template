@@ -9,7 +9,7 @@
 
 ## Demo
 
-Server runs on `http://localhost:3000/index`
+Server runs on `http://localhost:3000`
 
 
 ## Table of Contents
@@ -83,7 +83,7 @@ $ npm run dev
 **Step 7.** When you done, this will spin up a server that can be accessed at
 
 ```sh
-http://localhost:3000/index
+http://localhost:3000
 ```
 
 
