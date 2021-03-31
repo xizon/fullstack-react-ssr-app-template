@@ -99,6 +99,7 @@ $ npm install pm2@latest -g
 8.2) Frequently used commands:
 
 ```sh
+#into your `"react-app-ssr-starter/"` folder directory.
 $ cd /{your_directory}/react-app-ssr-starter
 
 #install Babel globally on your machine
@@ -147,6 +148,7 @@ react-app-ssr-starter/
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── LICENSE
+├── ecosystem.config.js  #for pm2
 ├── babel.config.js
 ├── webpack.config.js
 ├── package-lock.json
