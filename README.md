@@ -26,7 +26,7 @@ Server runs on `http://localhost:3000`
 
 ## Description
 
-Using react, redux, router, axios and express with Server-Side Rendering (SSR). This project was bootstrapped with nodejs library. 
+Using react, redux, router, axios and express with Server-Side Rendering (SSR). This project was bootstrapped with nodejs library. Project supports automatic deployments from a number of repository hosting services via pm2.
 
 
 * * *
@@ -86,13 +86,49 @@ $ npm run server
 http://localhost:3000
 ```
 
+**Step 8 (Optional).** Start Reactjs application with PM2 as a service (only works if you are using Node v13.9.0 or above.)
+
+
+8.1) Installing PM2. With NPM
+
+```sh
+$ npm install pm2@latest -g
+```
+
+
+8.2) Frequently used commands:
+
+```sh
+$ cd /{your_directory}/react-app-ssr-starter
+
+#install Babel globally on your machine
+$ sudo npm install -g @babel/core @babel/cli @babel/preset-env 
+
+#use babel-node with pm2
+$ pm2 start ecosystem.config.js  --interpreter babel-node  
+
+#other commands
+$ pm2 stop ecosystem.config.js
+$ pm2 delete ecosystem.config.js
+$ pm2 list
+$ pm2 logs
+```
+
+
 
 ### Note:
  
-**ERROR: npm update check failed.**
+**a) ERROR: npm update check failed.**
 
 ```sh
 $ sudo chown -R $USER:$(id -gn $USER) /Users/{username}/.config
+```
+
+**b) If you upgrade the version of Node, please execute the following code:**
+
+```sh
+$ sudo npm install
+$ sudo npm rebuild node-sass
 ```
 
 
@@ -137,6 +173,7 @@ react-app-ssr-starter/
 │   │   ├── router/
 │   │   └── components/
 │   └── server/
+│   │   ├── app.js
 │   │   ├── server.js
 │   │   └── renderer.js
 │   └── store/

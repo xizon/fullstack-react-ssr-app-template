@@ -1,9 +1,9 @@
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToString } from 'react-dom/server.js';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-import Routes from '../client/router/routes';
+import Routes from '../client/router/routes.js';
 
 
 //As we can not use BrowserRouter on server side, we will use StaticRouter . 

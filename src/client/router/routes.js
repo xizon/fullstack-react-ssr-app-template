@@ -1,8 +1,8 @@
-import App from '../components/_main';
-import Home from '../components/pages/Home';
-import Posts from '../components/pages/Posts';
-import PostDetail from '../components/pages/Posts/PostDetail';
-import Todos from '../components/pages/Todos';
+import App from '../components/_main/index.js';
+import Home from '../components/pages/Home/index.js';
+import Posts from '../components/pages/Posts/index.js';
+import PostDetail from '../components/pages/Posts/PostDetail.js';
+import Todos from '../components/pages/Todos/index.js';
 
 
 export default [

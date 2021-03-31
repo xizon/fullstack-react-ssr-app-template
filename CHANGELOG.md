@@ -1,5 +1,12 @@
 # Changelog
 
+
+#### = 0.0.75 (March 30, 2021) =
+
+* Add `pm2` configuration file for server-side deployment.
+
+
+
 #### = 0.0.72 (March 29, 2021) =
 
 * Set React Router Default Route Redirect to /index.

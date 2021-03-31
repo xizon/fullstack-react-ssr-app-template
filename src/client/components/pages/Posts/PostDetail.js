@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
-import { fetchDemoListDetail } from '../../../actions/demoListDetailActions';
+import { fetchDemoListDetail } from '../../../actions/demoListDetailActions.js';
 
 
 class PostDetail extends Component {
