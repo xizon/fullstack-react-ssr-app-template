@@ -1,6 +1,11 @@
 # Changelog
 
 
+#### = 0.0.76 (April 1, 2021) =
+
+* Update production environment dependencies.
+
+
 #### = 0.0.75 (March 30, 2021) =
 
 * Add `pm2` configuration file for server-side deployment.

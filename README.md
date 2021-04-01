@@ -60,7 +60,7 @@ $ cd /{your_directory}/react-app-ssr-starter
 **Step 3.** Before doing all dev stuff make sure you have `Node 10+` installed. After that, run the following code in the main directory to install the node module dependencies.
 
 ```sh
-$ sudo npm install --only=dev --unsafe-perm --production
+$ sudo npm install
 ```
 
 
@@ -76,7 +76,7 @@ $ npm run build
 **Step 6.** Finally, let's enter the code below. You can see that the server is running. (Run the Express server only.)
 
 ```sh
-$ npm run server
+$ npm run dev
 ```
 
 
