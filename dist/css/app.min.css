@@ -1,10 +1,10 @@
 /*!
  * 
  * ## Project Name        :  React App SSR Starter
- * ## Version             :  0.0.76
+ * ## Version             :  0.0.8
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
- * ## Last Update         :  April 1, 2021
+ * ## Last Update         :  April 2, 2021
  * ## Created by          :  UIUX Lab (https://uiux.cc)
  * ## Contact Us          :  uiuxlab@gmail.com
  * 	
- */nav{display:block;margin-bottom:50px}nav ul{list-style:none}nav li{float:left;padding:1rem 2rem}nav li a{color:#2075ef;text-decoration:none;font-size:16px;text-transform:uppercase;border:1px solid transparent;padding:.5rem 1rem}nav li a.active{background:#f7f6f0;border:1px solid #efe4e5;padding:.5rem 1rem}nav:after{content:"";display:block;clear:both}div.content{display:block;padding:15px;background:#f7f6f0;border:1px solid #efe4e5}
+ */button{border:0;margin:5px;border-radius:3px;padding:5px 15px}button:hover{filter:Invert()}nav{display:block;margin-bottom:50px}nav ul{list-style:none}nav li{float:left;padding:1rem 2rem}nav li a{color:#2075ef;text-decoration:none;font-size:16px;text-transform:uppercase;border:1px solid transparent;padding:.5rem 1rem}nav li a.active{background:#f7f6f0;border:1px solid #efe4e5;padding:.5rem 1rem}nav:after{content:"";display:block;clear:both}div.content{display:block;padding:15px;background:#f7f6f0;border:1px solid #efe4e5}

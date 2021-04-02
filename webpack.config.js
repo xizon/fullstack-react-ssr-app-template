@@ -82,7 +82,7 @@ let customWebsiteVersion     = json.version,
 
 
 // Get all the HTML template files
-let tempAllPages = glob.sync( './'+globs.build+'/components/**/*.html' );
+let tempAllPages = glob.sync( './'+globs.build+'/views/**/*.html' );
 let targetTempFilesName = [];
 let targetAllTempFilesName = [];
 

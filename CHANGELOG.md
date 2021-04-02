@@ -1,9 +1,10 @@
 # Changelog
 
 
-#### = 0.0.76 (April 1, 2021) =
+#### = 0.0.8 (April 2, 2021) =
 
 * Update production environment dependencies.
+* Adjusted the directory structure of `src/client/`.
 
 
 #### = 0.0.75 (March 30, 2021) =

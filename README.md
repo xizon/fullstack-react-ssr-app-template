@@ -173,7 +173,11 @@ react-app-ssr-starter/
 │   │   ├── actions/
 │   │   ├── reducers/
 │   │   ├── router/
-│   │   └── components/
+│   │   ├── components/   #Independent React components
+│   │   ├── views/
+│   │   │   ├── _navigation/
+│   │   │   ├── _pages/
+│   │   │   └── _html/
 │   └── server/
 │   │   ├── app.js
 │   │   ├── server.js

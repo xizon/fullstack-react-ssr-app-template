@@ -1,0 +1,10 @@
+button {
+	border: 0;
+	margin: 5px;
+	border-radius: 3px;
+	padding: 5px 15px;
+	
+	&:hover {
+		filter: Invert();
+	}
+}

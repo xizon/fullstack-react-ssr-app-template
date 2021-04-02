@@ -5,11 +5,11 @@ import {
 	NavLink,
 	Redirect
 } from "react-router-dom";
-import Home from '../pages/Home/index.js';
-import Posts from '../pages/Posts/index.js';
-import PostDetail from '../pages/Posts/PostDetail.js';
-import Todos from '../pages/Todos/index.js';
-import NoMatchPage from '../pages/404/index.js';
+import Home from '../_pages/Home/index.js';
+import Posts from '../_pages/Posts/index.js';
+import PostDetail from '../_pages/Posts/PostDetail.js';
+import Todos from '../_pages/Todos/index.js';
+import NoMatchPage from '../_pages/404/index.js';
 
 
 import './styles.scss';
