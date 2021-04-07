@@ -1,6 +1,12 @@
 # Changelog
 
 
+#### = 0.0.9 (April 6, 2021) =
+
+* Added some important notes.
+* Optimized some business logic of redux.
+
+
 #### = 0.0.8 (April 2, 2021) =
 
 * Update production environment dependencies.

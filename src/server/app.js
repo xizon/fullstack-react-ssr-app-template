@@ -68,14 +68,18 @@ app.get('*', async (req, res) => {
     // Checks the given path, matches with component and returns array of items about to be rendered
     const routes = matchRoutes(Routes, req.path);
     console.log( routes );
+	console.log( '-------' );
     
-    // Execute all `fetching` functions inside given urls and wrap promises with new promises to be able to render pages all the time
+    // Execute all `appSyncRequestFetching` functions inside given urls and wrap promises with new promises to be able to render pages all the time
     // Even if we get an error while loading data, we will still attempt to render page.
+	//@link to: `src/client/views/_pages/index.js`, `src/client/views/_pages/PostDetail.js`
     const actions = routes
                         .map(({ route }) => {
-                            //console.log( 'route.component.fetching: ' );
-                            //console.log( route.component.fetching );
-                            return route.component.fetching ? route.component.fetching({...store, path: req.path }) : null;
+							if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
+								console.log( 'route.component.appSyncRequestFetching: ' );
+								console.log( route.component.appSyncRequestFetching );	
+							}
+                            return route.component.appSyncRequestFetching ? route.component.appSyncRequestFetching({...store, path: req.path }) : null;
                         })
                         .map(async actions => await Promise.all(
                                 (actions || []).map(p => p && new Promise(resolve => p.then(resolve).catch(resolve)))
@@ -99,7 +103,7 @@ app.get('*', async (req, res) => {
     );
 
 
-    // Wait for all the `fetching` functions, if they are resolved, send the rendered html to browser.
+    // Wait for all the `appSyncRequestFetching` functions, if they are resolved, send the rendered html to browser.
     await  Promise.all( actions ).then(( data ) => {
         const templateCode = data.slice(-1).pop(); //get last item
         const context = {};

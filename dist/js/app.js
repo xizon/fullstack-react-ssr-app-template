@@ -1,9 +1,9 @@
 /*!
  * 
  * ## Project Name        :  React App SSR Starter
- * ## Version             :  0.0.8
+ * ## Version             :  0.0.9
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
- * ## Last Update         :  April 2, 2021
+ * ## Last Update         :  April 7, 2021
  * ## Created by          :  UIUX Lab (https://uiux.cc)
  * ## Contact Us          :  uiuxlab@gmail.com
  * 	
@@ -8695,6 +8695,9 @@ var demoListActions_fetchDemoList = function fetchDemoList() {
 
             case 2:
               res = _context.sent;
+              //const res = await axios.get( `../../assets/json/Posts.json` );
+              //The Redux store has a method called dispatch.
+              //@https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
               dispatch({
                 type: 'RECEIVE_DEMO_LIST',
                 payload: res.data
@@ -8788,7 +8791,19 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
     //been called; also, ES2015 class constructors have to call super() 
     //if they are subclasses.
     return _super.call(this, props); //console.log(this.props) //props will get logged.
-  }
+  } //Static properties/methords are the properties of the class. 
+  //@link to: `src/server/app.js`
+
+  /*
+  When requesting from the server, the program will look for the react component with 
+  the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
+  initial update and rendering of the data(SSR).
+  	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
+  	console.log( 'route.component.appSyncRequestFetching: ' );
+  	console.log( route.component.appSyncRequestFetching );	
+  }	
+  */
+
 
   createClass_default()(Posts, [{
     key: "componentDidMount",
@@ -8801,8 +8816,12 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
      * is a good place to instantiate the network request.
      */
     function componentDidMount() {
-      // Request data
-      this.props.dispatch(demoListActions_fetchDemoList());
+      //Receive contentInformation redux from the parent page
+      console.log('[posts list]this.props:');
+      console.log(this.props);
+      var contentInformation = this.props.contentInformation; // Request data
+
+      contentInformation(demoListActions_fetchDemoList());
     }
   }, {
     key: "render",
@@ -8825,8 +8844,8 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
       }) : ""));
     }
   }], [{
-    key: "fetching",
-    value: function fetching(_ref) {
+    key: "appSyncRequestFetching",
+    value: function appSyncRequestFetching(_ref) {
       var dispatch = _ref.dispatch;
       return [dispatch(demoListActions_fetchDemoList())];
     }
@@ -8839,14 +8858,16 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
 
 var Posts_mapStateToProps = function mapStateToProps(state) {
   return {
-    currentData: state.listData.items
+    currentData: state.listData.items //Receive redux
+
   };
 }; // Bind the introduced Actions
 
 
 var Posts_mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    dispatch: dispatch
+    contentInformation: dispatch //Throw redux
+
   };
 }; // The most important step is to bind the required Reducer and Actions to the current page 
 // through the connect function provided by react-redux
@@ -8870,6 +8891,9 @@ var demoListDetailActions_fetchDemoListDetail = function fetchDemoListDetail(id)
 
             case 2:
               res = _context.sent;
+              //const res = await axios.get( `../../assets/json/PostDetail.json` );
+              //The Redux store has a method called dispatch.
+              //@https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
               dispatch({
                 type: 'RECEIVE_DEMO_LISTDETAIL',
                 payload: res.data
@@ -8916,7 +8940,19 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
     //been called; also, ES2015 class constructors have to call super() 
     //if they are subclasses.
     return _super.call(this, props); //console.log(this.props) //props will get logged.
-  }
+  } //Static properties/methords are the properties of the class. 
+  //@link to: `src/server/app.js`
+
+  /*
+  When requesting from the server, the program will look for the react component with 
+  the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
+  initial update and rendering of the data(SSR).
+  	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
+  	console.log( 'route.component.appSyncRequestFetching: ' );
+  	console.log( route.component.appSyncRequestFetching );	
+  }	
+  */
+
 
   createClass_default()(PostDetail, [{
     key: "componentDidMount",
@@ -8929,8 +8965,12 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
      * is a good place to instantiate the network request.
      */
     function componentDidMount() {
-      // Request data
-      this.props.dispatch(demoListDetailActions_fetchDemoListDetail(this.props.match.params.post_id));
+      //Receive contentInformation redux from the parent page
+      console.log('[detail of post]this.props:');
+      console.log(this.props);
+      var contentInformation = this.props.contentInformation; // Request data
+
+      contentInformation(demoListDetailActions_fetchDemoListDetail(this.props.match.params.post_id));
     }
   }, {
     key: "render",
@@ -8973,8 +9013,8 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
       }) : ""));
     }
   }], [{
-    key: "fetching",
-    value: function fetching(_ref) {
+    key: "appSyncRequestFetching",
+    value: function appSyncRequestFetching(_ref) {
       var dispatch = _ref.dispatch,
           path = _ref.path;
       var currentID = path.split('/').pop();
@@ -8989,14 +9029,16 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
 
 var PostDetail_mapStateToProps = function mapStateToProps(state) {
   return {
-    currentData: state.listDetailData.detail
+    currentData: state.listDetailData.detail //Receive redux
+
   };
 }; // Bind the introduced Actions
 
 
 var PostDetail_mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    dispatch: dispatch
+    contentInformation: dispatch //Throw redux
+
   };
 }; // The most important step is to bind the required Reducer and Actions to the current page 
 // through the connect function provided by react-redux
@@ -9385,7 +9427,13 @@ var _navigation_styles = __webpack_require__(64);
     path: "/",
     component: Home,
     exact: true
-  }, {
+  },
+  /* 
+  important!! 
+  	Fixed: Nested routes not working
+  	Add a new route of /posts/:post_id and add an `exact` property to the current route: 
+  */
+  {
     path: "/posts",
     component: _pages_Posts
   }, {

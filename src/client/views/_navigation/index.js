@@ -55,7 +55,7 @@ export default props => {
 		     }
           <Switch>
 
-		      /* Set React Router Default Route Redirect to `/index` */
+			  {/* Set React Router Default Route Redirect to `/index` */}
               <Route
                 exact
                 path="/"
@@ -68,6 +68,15 @@ export default props => {
 		
             <Route path="/index" component={Home} />
             <Route path="/todos" component={Todos} />
+				
+			{
+			/* 
+			important!! 
+				Fixed: Nested routes not working
+				Add a new route of /posts/:post_id and add an `exact` property to the current route: 
+			*/			
+			}
+
             <Route path="/posts" component={Posts} />
             <Route path="/post-detail/:post_id" component={PostDetail} />
             <Route component={NoMatchPage} />

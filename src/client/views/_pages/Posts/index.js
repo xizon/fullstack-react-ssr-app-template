@@ -17,7 +17,20 @@ class Posts extends Component {
    
 	}
     
-    static fetching ({ dispatch }) {
+	
+	//Static properties/methords are the properties of the class. 
+	//@link to: `src/server/app.js`
+	/*
+	When requesting from the server, the program will look for the react component with 
+	the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
+	initial update and rendering of the data(SSR).
+
+	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
+		console.log( 'route.component.appSyncRequestFetching: ' );
+		console.log( route.component.appSyncRequestFetching );	
+	}	
+	*/
+    static appSyncRequestFetching ({ dispatch }) {
         return [ dispatch( fetchDemoList() ) ];
     } 
 
@@ -30,8 +43,14 @@ class Posts extends Component {
      */
     componentDidMount() {
    
-        // Request data
-        this.props.dispatch(fetchDemoList());
+		//Receive contentInformation redux from the parent page
+		console.log('[posts list]this.props:' );
+		console.log(this.props);
+		
+		const { contentInformation } = this.props;
+
+		// Request data
+        contentInformation(fetchDemoList());
    
         
     }
@@ -69,16 +88,17 @@ class Posts extends Component {
 // here (for details of the data structure: initState)
 const mapStateToProps = (state) => {
     return {
-        currentData: state.listData.items
+        currentData: state.listData.items  //Receive redux
     }
 };
 
 // Bind the introduced Actions
 const mapDispatchToProps = (dispatch) => {
     return {
-        dispatch: dispatch
+        contentInformation: dispatch  //Throw redux
     }
 };
+
 
 
 // The most important step is to bind the required Reducer and Actions to the current page 

@@ -14,6 +14,13 @@ export default [
         component: Home,
         exact: true,
       },
+		
+	/* 
+	important!! 
+		Fixed: Nested routes not working
+		Add a new route of /posts/:post_id and add an `exact` property to the current route: 
+	*/
+		
       {
         path: "/posts",
         component: Posts

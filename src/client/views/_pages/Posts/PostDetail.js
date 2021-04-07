@@ -17,7 +17,20 @@ class PostDetail extends Component {
    
 	}
 
-    static fetching ({ dispatch, path }) {
+	
+	//Static properties/methords are the properties of the class. 
+	//@link to: `src/server/app.js`
+	/*
+	When requesting from the server, the program will look for the react component with 
+	the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
+	initial update and rendering of the data(SSR).
+
+	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
+		console.log( 'route.component.appSyncRequestFetching: ' );
+		console.log( route.component.appSyncRequestFetching );	
+	}	
+	*/
+    static appSyncRequestFetching ({ dispatch, path }) {
         let currentID = path.split( '/' ).pop();
         return [ dispatch( fetchDemoListDetail( currentID ) ) ];
     }
@@ -32,9 +45,17 @@ class PostDetail extends Component {
      */
     componentDidMount() {
 
-        // Request data
-        this.props.dispatch(fetchDemoListDetail( this.props.match.params.post_id ));
-        
+		//Receive contentInformation redux from the parent page
+		console.log('[detail of post]this.props:' );
+		console.log(this.props);
+		
+		
+		
+		const { contentInformation } = this.props;
+
+		// Request data
+        contentInformation(fetchDemoListDetail( this.props.match.params.post_id ));
+		
     }
 
 
@@ -82,21 +103,21 @@ class PostDetail extends Component {
 
 }
 
-    
 // Subscribe to the required state in the reducers is bound 
 // here (for details of the data structure: initState)
 const mapStateToProps = (state) => {
     return {
-        currentData: state.listDetailData.detail
+        currentData: state.listDetailData.detail   //Receive redux
     }
 };
 
 // Bind the introduced Actions
 const mapDispatchToProps = (dispatch) => {
     return {
-        dispatch: dispatch
+        contentInformation: dispatch   //Throw redux
     }
 };
+
 
 
 // The most important step is to bind the required Reducer and Actions to the current page 
