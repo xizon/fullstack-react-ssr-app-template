@@ -1,6 +1,13 @@
 # Changelog
 
 
+
+#### = 0.0.10 (April 15, 2021) =
+
+* Add Nested Routes demo.
+* Minor adjustment of the Router directory structure. 
+
+
 #### = 0.0.9 (April 6, 2021) =
 
 * Added some important notes.

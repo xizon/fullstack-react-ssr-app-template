@@ -175,7 +175,6 @@ react-app-ssr-starter/
 │   │   ├── router/
 │   │   ├── components/   #Independent React components
 │   │   ├── views/
-│   │   │   ├── _navigation/
 │   │   │   ├── _pages/
 │   │   │   └── _html/
 │   └── server/

@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server.js';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-import Routes from '../client/router/routes.js';
+import customRoutesConfig from '../client/router/RoutesConfig.js';
 
 
 //As we can not use BrowserRouter on server side, we will use StaticRouter . 
@@ -13,7 +13,7 @@ export default (pathname, store, context, template) => {
     const content = renderToString(
         <Provider store={store}>
             <StaticRouter location={pathname} context={context}>
-                <div>{renderRoutes(Routes)}</div>
+                <div id="main">{renderRoutes(customRoutesConfig)}</div>
             </StaticRouter>
         </Provider>
     );

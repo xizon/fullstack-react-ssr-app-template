@@ -1,7 +1,7 @@
 import express from 'express';
 import { matchRoutes } from 'react-router-config';
 import render from './renderer.js';
-import Routes from '../client/router/routes.js';
+import customRoutesConfig from '../client/router/RoutesConfig.js';
 import createNewStore from '../store/createStore.js';
 
 //
@@ -66,7 +66,7 @@ app.get('*', async (req, res) => {
 
     
     // Checks the given path, matches with component and returns array of items about to be rendered
-    const routes = matchRoutes(Routes, req.path);
+    const routes = matchRoutes(customRoutesConfig, req.path);
     console.log( routes );
 	console.log( '-------' );
     

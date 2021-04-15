@@ -1,9 +1,9 @@
 /*!
  * 
  * ## Project Name        :  React App SSR Starter
- * ## Version             :  0.0.9
+ * ## Version             :  0.0.10
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
- * ## Last Update         :  April 7, 2021
+ * ## Last Update         :  April 15, 2021
  * ## Created by          :  UIUX Lab (https://uiux.cc)
  * ## Contact Us          :  uiuxlab@gmail.com
  * 	
@@ -91,7 +91,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 65);
+/******/ 	return __webpack_require__(__webpack_require__.s = 64);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -545,7 +545,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var setPrototypeOf = __webpack_require__(41);
+var setPrototypeOf = __webpack_require__(42);
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
@@ -569,7 +569,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _typeof = __webpack_require__(42)["default"];
+var _typeof = __webpack_require__(43)["default"];
 
 var assertThisInitialized = __webpack_require__(10);
 
@@ -606,7 +606,7 @@ if (false) { var throwOnDirectAccess, ReactIs; } else {
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(45);
+module.exports = __webpack_require__(46);
 
 /***/ }),
 /* 10 */
@@ -627,7 +627,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(44);
+module.exports = __webpack_require__(45);
 
 
 /***/ }),
@@ -1069,7 +1069,7 @@ var index = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext || create
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isarray = __webpack_require__(63)
+var isarray = __webpack_require__(41)
 
 /**
  * Expose `pathToRegexp`.
@@ -1735,7 +1735,7 @@ module.exports = function isCancel(value) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(2);
-var normalizeHeaderName = __webpack_require__(51);
+var normalizeHeaderName = __webpack_require__(52);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -1831,7 +1831,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(50)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(51)))
 
 /***/ }),
 /* 27 */
@@ -1841,12 +1841,12 @@ module.exports = defaults;
 
 
 var utils = __webpack_require__(2);
-var settle = __webpack_require__(52);
-var cookies = __webpack_require__(54);
+var settle = __webpack_require__(53);
+var cookies = __webpack_require__(55);
 var buildURL = __webpack_require__(24);
-var buildFullPath = __webpack_require__(55);
-var parseHeaders = __webpack_require__(58);
-var isURLSameOrigin = __webpack_require__(59);
+var buildFullPath = __webpack_require__(56);
+var parseHeaders = __webpack_require__(59);
+var isURLSameOrigin = __webpack_require__(60);
 var createError = __webpack_require__(28);
 
 module.exports = function xhrAdapter(config) {
@@ -2026,7 +2026,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(53);
+var enhanceError = __webpack_require__(54);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -2734,6 +2734,15 @@ module.exports = function(originalModule) {
 /* 41 */
 /***/ (function(module, exports) {
 
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports) {
+
 function _setPrototypeOf(o, p) {
   module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
     o.__proto__ = p;
@@ -2748,7 +2757,7 @@ module.exports = _setPrototypeOf;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports) {
 
 function _typeof(obj) {
@@ -2775,13 +2784,13 @@ module.exports = _typeof;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -3535,7 +3544,7 @@ try {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3543,7 +3552,7 @@ try {
 
 var utils = __webpack_require__(2);
 var bind = __webpack_require__(23);
-var Axios = __webpack_require__(46);
+var Axios = __webpack_require__(47);
 var mergeConfig = __webpack_require__(29);
 var defaults = __webpack_require__(26);
 
@@ -3579,17 +3588,17 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(30);
-axios.CancelToken = __webpack_require__(60);
+axios.CancelToken = __webpack_require__(61);
 axios.isCancel = __webpack_require__(25);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(61);
+axios.spread = __webpack_require__(62);
 
 // Expose isAxiosError
-axios.isAxiosError = __webpack_require__(62);
+axios.isAxiosError = __webpack_require__(63);
 
 module.exports = axios;
 
@@ -3598,7 +3607,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3606,8 +3615,8 @@ module.exports.default = axios;
 
 var utils = __webpack_require__(2);
 var buildURL = __webpack_require__(24);
-var InterceptorManager = __webpack_require__(47);
-var dispatchRequest = __webpack_require__(48);
+var InterceptorManager = __webpack_require__(48);
+var dispatchRequest = __webpack_require__(49);
 var mergeConfig = __webpack_require__(29);
 
 /**
@@ -3700,7 +3709,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3759,14 +3768,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(2);
-var transformData = __webpack_require__(49);
+var transformData = __webpack_require__(50);
 var isCancel = __webpack_require__(25);
 var defaults = __webpack_require__(26);
 
@@ -3845,7 +3854,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3872,7 +3881,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -4062,7 +4071,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4081,7 +4090,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4113,7 +4122,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4162,7 +4171,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4222,14 +4231,14 @@ module.exports = (
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var isAbsoluteURL = __webpack_require__(56);
-var combineURLs = __webpack_require__(57);
+var isAbsoluteURL = __webpack_require__(57);
+var combineURLs = __webpack_require__(58);
 
 /**
  * Creates a new URL by combining the baseURL with the requestedURL,
@@ -4249,7 +4258,7 @@ module.exports = function buildFullPath(baseURL, requestedURL) {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4270,7 +4279,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4291,7 +4300,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4351,7 +4360,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4426,7 +4435,7 @@ module.exports = (
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4490,7 +4499,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4524,7 +4533,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4542,22 +4551,7 @@ module.exports = function isAxiosError(payload) {
 
 
 /***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-module.exports = Array.isArray || function (arr) {
-  return Object.prototype.toString.call(arr) == '[object Array]';
-};
-
-
-/***/ }),
 /* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8552,6 +8546,62 @@ function renderRoutes(routes, extraProps, switchProps) {
 
 //# sourceMappingURL=react-router-config.js.map
 
+// CONCATENATED MODULE: ./src/client/router/App.js
+
+
+
+/* harmony default export */ var App = (function (props) {
+  //Click the route to trigger the event
+  var theLocation = useLocation();
+  react_default.a.useEffect(function () {
+    console.log('theLocation(): ', theLocation); //create a style element and append to head
+
+    var $style = document.createElement("style");
+    document.head.appendChild($style);
+    $style.innerHTML = "\n\t\t\tnav {\n\t\t\t\tdisplay: block;\n\t\t\t\tmargin-bottom: 50px;\n\t\t\t}\n\n\t\t\tnav ul {\n\t\t\t\tlist-style: none;\n\t\t\t}\n\n\t\t\tnav li {\n\t\t\t\tfloat: left;\n\t\t\t\tpadding: 1rem 2rem;\n\t\t\t}\n\n\t\t\tnav li a {\n\t\t\t\tcolor: #2075EF;\n\t\t\t\ttext-decoration: none;\n\t\t\t\tfont-size: 16px;\n\t\t\t\ttext-transform: uppercase;\n\t\t\t\tborder: 1px solid rgba(0, 0, 0, 0);\n\t\t\t\tpadding: 0.5rem 1rem;\n\t\t\t}\n\n\t\t\tnav li a.active {\n\t\t\t\tbackground: #F7F6F0;\n\t\t\t\tborder: 1px solid #EFE4E5;\n\t\t\t\tpadding: 0.5rem 1rem;\n\t\t\t}\n\n\t\t\tnav::after {\n\t\t\t\tcontent: \"\";\n\t\t\t\tdisplay: block;\n\t\t\t\tclear: both;\n\t\t\t}\n\n\t\t\t.content {\n\t\t\t\tdisplay: block;\n\t\t\t\tpadding: 15px;\n\t\t\t\tbackground: #F7F6F0;\n\t\t\t\tborder: 1px solid #EFE4E5;\n\t\t\t\tbox-shadow: 0px 10px 5px -12px rgb(0 0 0 / 21%);\n\t\t\t\tmargin: 10px 70px;\n\t\t\t\tborder-radius: 15px;\n\t\t\t}";
+  });
+  return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("nav", null, /*#__PURE__*/react_default.a.createElement("ul", null, /*#__PURE__*/react_default.a.createElement("li", {
+    className: props.location.pathname === '/index' || props.location.pathname === '' ? 'active' : ''
+  }, /*#__PURE__*/react_default.a.createElement(NavLink, {
+    to: "/index",
+    activeClassName: "active"
+  }, "Home")), /*#__PURE__*/react_default.a.createElement("li", {
+    className: props.location.pathname === '/todos' ? 'active' : ''
+  }, /*#__PURE__*/react_default.a.createElement(NavLink, {
+    to: "/todos",
+    activeClassName: "active"
+  }, "Todos")), /*#__PURE__*/react_default.a.createElement("li", {
+    className: props.location.pathname.indexOf('/posts') >= 0 ? 'active' : ''
+  }, /*#__PURE__*/react_default.a.createElement(NavLink, {
+    to: "/posts",
+    activeClassName: "active"
+  }, "Posts")), /*#__PURE__*/react_default.a.createElement("li", {
+    className: props.location.pathname === '/errorpage' ? 'active' : ''
+  }, /*#__PURE__*/react_default.a.createElement(NavLink, {
+    to: "/errorpage",
+    activeClassName: "active"
+  }, "404")), /*#__PURE__*/react_default.a.createElement("li", {
+    className: props.location.pathname.indexOf('/nested-routes') >= 0 ? 'active' : ''
+  }, /*#__PURE__*/react_default.a.createElement(NavLink, {
+    to: "/nested-routes",
+    activeClassName: "active"
+  }, "Nested Routes")))), /*#__PURE__*/react_default.a.createElement(react_router_Switch, null, /*#__PURE__*/react_default.a.createElement(react_router_Route, {
+    exact: true,
+    path: "/",
+    render: function render(props) {
+      return /*#__PURE__*/react_default.a.createElement(Redirect, {
+        to: "/index"
+      });
+    }
+  }), RoutesConfig[0].routes.map(function (item, index) {
+    return /*#__PURE__*/react_default.a.createElement(react_router_Route, {
+      key: index,
+      path: item.path,
+      exact: item.exact,
+      component: item.component
+    });
+  })));
+});
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
 var classCallCheck = __webpack_require__(4);
 var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
@@ -8573,7 +8623,7 @@ var getPrototypeOf = __webpack_require__(1);
 var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
 
 // EXTERNAL MODULE: ./src/client/components/Buttons/styles/index.scss
-var styles = __webpack_require__(43);
+var styles = __webpack_require__(44);
 
 // CONCATENATED MODULE: ./src/client/components/Buttons/index.js
 
@@ -8734,7 +8784,7 @@ var demoListActions_fetchDemoList = function fetchDemoList() {
       position: "relative"
     }
   }, /*#__PURE__*/react_default.a.createElement(NavLink, {
-    to: "/post-detail/".concat(name),
+    to: "/posts/".concat(name),
     className: "item"
   }, /*#__PURE__*/react_default.a.createElement("img", {
     src: flag,
@@ -9370,63 +9420,83 @@ var Todos_Todos = /*#__PURE__*/function (_Component) {
     className: "content"
   }, /*#__PURE__*/react_default.a.createElement("h3", null, "404 - Not found")));
 });
-// EXTERNAL MODULE: ./src/client/views/_navigation/styles.scss
-var _navigation_styles = __webpack_require__(64);
-
-// CONCATENATED MODULE: ./src/client/views/_navigation/index.js
+// CONCATENATED MODULE: ./src/client/views/_pages/NestedRoutes/NestedRoutesDetail.js
 
 
 
+/* Convert Allowance class component to functional component */
+
+var NestedRoutesDetail_NestedRoutesDetail = function NestedRoutesDetail() {
+  // The <Route> that rendered this component has a
+  // path of `/nested-routes/:topicId`. The `:topicId` portion
+  // of the URL indicates a placeholder that we can
+  // get from `useParams()`.
+  var _useParams = useParams(),
+      topicId = _useParams.topicId; //Click the route to trigger the event
 
 
-
-
-
-/* harmony default export */ var _navigation = (function (props) {
-  return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("nav", null, /*#__PURE__*/react_default.a.createElement("ul", null, /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
-    to: "/index"
-  }, "Home")), /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
-    to: "/todos"
-  }, "Todos")), /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
-    to: "/posts"
-  }, "Posts")), /*#__PURE__*/react_default.a.createElement("li", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
-    to: "/errorpage"
-  }, "404")))), /*#__PURE__*/react_default.a.createElement(react_router_Switch, null, "/* Set React Router Default Route Redirect to `/index` */", /*#__PURE__*/react_default.a.createElement(react_router_Route, {
-    exact: true,
-    path: "/",
-    render: function render(props) {
-      return /*#__PURE__*/react_default.a.createElement(Redirect, {
-        to: "/index"
-      });
+  var theLocation = useLocation();
+  react_default.a.useEffect(function () {
+    console.log('topicId: ', topicId);
+  });
+  return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("p", null, "Detail topicId: ", /*#__PURE__*/react_default.a.createElement("span", {
+    style: {
+      background: "yellow",
+      padding: "5px"
     }
-  }), /*#__PURE__*/react_default.a.createElement(react_router_Route, {
-    path: "/index",
-    component: Home
-  }), /*#__PURE__*/react_default.a.createElement(react_router_Route, {
-    path: "/todos",
-    component: _pages_Todos
-  }), /*#__PURE__*/react_default.a.createElement(react_router_Route, {
-    path: "/posts",
-    component: _pages_Posts
-  }), /*#__PURE__*/react_default.a.createElement(react_router_Route, {
-    path: "/post-detail/:post_id",
-    component: Posts_PostDetail
-  }), /*#__PURE__*/react_default.a.createElement(react_router_Route, {
-    component: _404
-  })));
+  }, topicId)));
+};
+
+/* harmony default export */ var NestedRoutes_NestedRoutesDetail = (NestedRoutesDetail_NestedRoutesDetail);
+// CONCATENATED MODULE: ./src/client/views/_pages/NestedRoutes/index.js
+
+
+
+
+/* harmony default export */ var NestedRoutes = (function (props) {
+  // The `path` lets us build <Route> paths that are
+  // relative to the parent route, while the `url` lets
+  // us build relative links.
+  var _useRouteMatch = useRouteMatch(),
+      path = _useRouteMatch.path,
+      url = _useRouteMatch.url;
+
+  return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("div", {
+    className: "content"
+  }, /*#__PURE__*/react_default.a.createElement("h3", null, "Nested Routes Page"), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
+    to: "".concat(url, "/topic-one"),
+    activeClassName: "is-active"
+  }, "> click here to display Topic One")), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
+    to: "".concat(url, "/topic-two"),
+    activeClassName: "is-active"
+  }, "> click here to display Topic Two")), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
+    to: "".concat(url, "/topic-three"),
+    activeClassName: "is-active"
+  }, "> click here to display Topic Three")), /*#__PURE__*/react_default.a.createElement("hr", null), /*#__PURE__*/react_default.a.createElement("h5", null, "Content:"), /*#__PURE__*/react_default.a.createElement(react_router_Switch, null, /*#__PURE__*/react_default.a.createElement(react_router_Route, {
+    exact: true,
+    path: path
+  }, /*#__PURE__*/react_default.a.createElement("p", null, "None.")), /*#__PURE__*/react_default.a.createElement(react_router_Route, {
+    path: "".concat(path, "/:topicId")
+  }, /*#__PURE__*/react_default.a.createElement(NestedRoutes_NestedRoutesDetail, null)))));
 });
-// CONCATENATED MODULE: ./src/client/router/routes.js
+// CONCATENATED MODULE: ./src/client/router/RoutesConfig.js
+ //
 
 
 
 
 
-/* harmony default export */ var router_routes = ([{
-  component: _navigation,
+
+
+var routesConfig = [{
+  component: App,
   routes: [{
     path: "/",
     component: Home,
     exact: true
+  }, {
+    path: "/index",
+    component: Home
   },
   /* 
   important!! 
@@ -9435,22 +9505,34 @@ var _navigation_styles = __webpack_require__(64);
   */
   {
     path: "/posts",
-    component: _pages_Posts
+    component: _pages_Posts,
+    exact: true
   }, {
     path: '/todos',
     component: _pages_Todos
   }, {
-    path: '/post-detail/:post_id',
+    path: '/posts/:post_id',
     component: Posts_PostDetail
+  },
+  /* In order to make nested routes valid, do not add the exact attribute here */
+  {
+    path: '/nested-routes',
+    component: NestedRoutes
+  }, {
+    path: '*',
+    component: _404
   }]
-}]);
+}];
+/* harmony default export */ var RoutesConfig = (routesConfig);
 // CONCATENATED MODULE: ./src/client/router/index.js
 
 
 
 
 /* harmony default export */ var router = (function () {
-  return /*#__PURE__*/react_default.a.createElement(react_router_dom_BrowserRouter, null, /*#__PURE__*/react_default.a.createElement("div", null, renderRoutes(router_routes)));
+  return /*#__PURE__*/react_default.a.createElement(react_router_dom_BrowserRouter, null, /*#__PURE__*/react_default.a.createElement("div", {
+    id: "main"
+  }, renderRoutes(RoutesConfig)));
 });
 // CONCATENATED MODULE: ./node_modules/redux-thunk/es/index.js
 function createThunkMiddleware(extraArgument) {
