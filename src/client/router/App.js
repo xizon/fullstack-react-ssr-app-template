@@ -5,7 +5,7 @@ import {
 	NavLink,
 	Redirect,
 	useLocation
-} from "react-router-dom";
+} from 'react-router-dom';
 import customRoutesConfig from './RoutesConfig.js';
 
 

@@ -1,9 +1,9 @@
 /*!
  * 
  * ## Project Name        :  React App SSR Starter
- * ## Version             :  0.0.10
+ * ## Version             :  0.0.11
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
- * ## Last Update         :  April 15, 2021
+ * ## Last Update         :  April 16, 2021
  * ## Created by          :  UIUX Lab (https://uiux.cc)
  * ## Contact Us          :  uiuxlab@gmail.com
  * 	
@@ -123,6 +123,85 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+module.exports = _classCallCheck;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+module.exports = _createClass;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var setPrototypeOf = __webpack_require__(42);
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) setPrototypeOf(subClass, superClass);
+}
+
+module.exports = _inherits;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _typeof = __webpack_require__(43)["default"];
+
+var assertThisInitialized = __webpack_require__(10);
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return assertThisInitialized(self);
+}
+
+module.exports = _possibleConstructorReturn;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -480,7 +559,7 @@ module.exports = {
 
 
 /***/ }),
-/* 3 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -504,85 +583,6 @@ function _inheritsLoose(subClass, superClass) {
   subClass.prototype.constructor = subClass;
   _setPrototypeOf(subClass, superClass);
 }
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-module.exports = _classCallCheck;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-module.exports = _createClass;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var setPrototypeOf = __webpack_require__(42);
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) setPrototypeOf(subClass, superClass);
-}
-
-module.exports = _inherits;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _typeof = __webpack_require__(43)["default"];
-
-var assertThisInitialized = __webpack_require__(10);
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return assertThisInitialized(self);
-}
-
-module.exports = _possibleConstructorReturn;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 /* 8 */
@@ -885,7 +885,7 @@ var result = Object(_ponyfill_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 
@@ -1645,7 +1645,7 @@ module.exports = function bind(fn, thisArg) {
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -1734,7 +1734,7 @@ module.exports = function isCancel(value) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 var normalizeHeaderName = __webpack_require__(52);
 
 var DEFAULT_CONTENT_TYPE = {
@@ -1840,7 +1840,7 @@ module.exports = defaults;
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 var settle = __webpack_require__(53);
 var cookies = __webpack_require__(55);
 var buildURL = __webpack_require__(24);
@@ -2051,7 +2051,7 @@ module.exports = function createError(message, config, code, request, response) 
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 
 /**
  * Config-specific merge-function which creates a new config-object
@@ -3550,7 +3550,7 @@ try {
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 var bind = __webpack_require__(23);
 var Axios = __webpack_require__(47);
 var mergeConfig = __webpack_require__(29);
@@ -3613,7 +3613,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 var buildURL = __webpack_require__(24);
 var InterceptorManager = __webpack_require__(48);
 var dispatchRequest = __webpack_require__(49);
@@ -3715,7 +3715,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -3774,7 +3774,7 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 var transformData = __webpack_require__(50);
 var isCancel = __webpack_require__(25);
 var defaults = __webpack_require__(26);
@@ -3860,7 +3860,7 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 
 /**
  * Transform the data for a request or a response
@@ -4077,7 +4077,7 @@ process.umask = function() { return 0; };
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -4177,7 +4177,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -4306,7 +4306,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -4366,7 +4366,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(2);
+var utils = __webpack_require__(6);
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -6499,7 +6499,7 @@ var useSelector_useSelector = /*#__PURE__*/createSelectorHook();
 setBatch(react_dom["unstable_batchedUpdates"]);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js + 1 modules
-var inheritsLoose = __webpack_require__(3);
+var inheritsLoose = __webpack_require__(7);
 
 // CONCATENATED MODULE: ./node_modules/resolve-pathname/esm/resolve-pathname.js
 function isAbsolute(pathname) {
@@ -8603,19 +8603,19 @@ function renderRoutes(routes, extraProps, switchProps) {
   })));
 });
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
-var classCallCheck = __webpack_require__(4);
+var classCallCheck = __webpack_require__(2);
 var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/createClass.js
-var createClass = __webpack_require__(5);
+var createClass = __webpack_require__(3);
 var createClass_default = /*#__PURE__*/__webpack_require__.n(createClass);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
-var inherits = __webpack_require__(6);
+var inherits = __webpack_require__(4);
 var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js
-var possibleConstructorReturn = __webpack_require__(7);
+var possibleConstructorReturn = __webpack_require__(5);
 var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possibleConstructorReturn);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/getPrototypeOf.js
@@ -9424,9 +9424,18 @@ var Todos_Todos = /*#__PURE__*/function (_Component) {
 
 
 
-/* Convert Allowance class component to functional component */
 
-var NestedRoutesDetail_NestedRoutesDetail = function NestedRoutesDetail() {
+
+
+function NestedRoutesDetail_createSuper(Derived) { var hasNativeReflectConstruct = NestedRoutesDetail_isNativeReflectConstruct(); return function _createSuperInternal() { var Super = getPrototypeOf_default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf_default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn_default()(this, result); }; }
+
+function NestedRoutesDetail_isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+ //Might have mismatching versions of React and the renderer (such as React DOM)
+
+function HookScript() {
   // The <Route> that rendered this component has a
   // path of `/nested-routes/:topicId`. The `:topicId` portion
   // of the URL indicates a placeholder that we can
@@ -9439,13 +9448,46 @@ var NestedRoutesDetail_NestedRoutesDetail = function NestedRoutesDetail() {
   react_default.a.useEffect(function () {
     console.log('topicId: ', topicId);
   });
-  return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("p", null, "Detail topicId: ", /*#__PURE__*/react_default.a.createElement("span", {
-    style: {
-      background: "yellow",
-      padding: "5px"
+  return /*#__PURE__*/react_default.a.createElement(react_default.a.Fragment, null);
+}
+
+function HookTopicId() {
+  // The <Route> that rendered this component has a
+  // path of `/nested-routes/:topicId`. The `:topicId` portion
+  // of the URL indicates a placeholder that we can
+  // get from `useParams()`.
+  var _useParams2 = useParams(),
+      topicId = _useParams2.topicId;
+
+  return topicId;
+} //---
+
+
+var NestedRoutesDetail_NestedRoutesDetail = /*#__PURE__*/function (_Component) {
+  inherits_default()(NestedRoutesDetail, _Component);
+
+  var _super = NestedRoutesDetail_createSuper(NestedRoutesDetail);
+
+  function NestedRoutesDetail() {
+    classCallCheck_default()(this, NestedRoutesDetail);
+
+    return _super.apply(this, arguments);
+  }
+
+  createClass_default()(NestedRoutesDetail, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement(HookScript, null), /*#__PURE__*/react_default.a.createElement("p", null, "Detail topicId: ", /*#__PURE__*/react_default.a.createElement("span", {
+        style: {
+          background: "yellow",
+          padding: "5px"
+        }
+      }, /*#__PURE__*/react_default.a.createElement(HookTopicId, null))));
     }
-  }, topicId)));
-};
+  }]);
+
+  return NestedRoutesDetail;
+}(react["Component"]);
 
 /* harmony default export */ var NestedRoutes_NestedRoutesDetail = (NestedRoutesDetail_NestedRoutesDetail);
 // CONCATENATED MODULE: ./src/client/views/_pages/NestedRoutes/index.js
@@ -9453,7 +9495,18 @@ var NestedRoutesDetail_NestedRoutesDetail = function NestedRoutesDetail() {
 
 
 
-/* harmony default export */ var NestedRoutes = (function (props) {
+
+
+function NestedRoutes_createSuper(Derived) { var hasNativeReflectConstruct = NestedRoutes_isNativeReflectConstruct(); return function _createSuperInternal() { var Super = getPrototypeOf_default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf_default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn_default()(this, result); }; }
+
+function NestedRoutes_isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+ //Might have mismatching versions of React and the renderer (such as React DOM)
+
+function HookContent() {
   // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
   // us build relative links.
@@ -9461,9 +9514,7 @@ var NestedRoutesDetail_NestedRoutesDetail = function NestedRoutesDetail() {
       path = _useRouteMatch.path,
       url = _useRouteMatch.url;
 
-  return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("div", {
-    className: "content"
-  }, /*#__PURE__*/react_default.a.createElement("h3", null, "Nested Routes Page"), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
+  return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("h3", null, "Nested Routes Page"), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
     to: "".concat(url, "/topic-one"),
     activeClassName: "is-active"
   }, "> click here to display Topic One")), /*#__PURE__*/react_default.a.createElement("div", null, /*#__PURE__*/react_default.a.createElement(NavLink, {
@@ -9477,8 +9528,33 @@ var NestedRoutesDetail_NestedRoutesDetail = function NestedRoutesDetail() {
     path: path
   }, /*#__PURE__*/react_default.a.createElement("p", null, "None.")), /*#__PURE__*/react_default.a.createElement(react_router_Route, {
     path: "".concat(path, "/:topicId")
-  }, /*#__PURE__*/react_default.a.createElement(NestedRoutes_NestedRoutesDetail, null)))));
-});
+  }, /*#__PURE__*/react_default.a.createElement(NestedRoutes_NestedRoutesDetail, null))));
+}
+
+var NestedRoutes_NestedRoutes = /*#__PURE__*/function (_Component) {
+  inherits_default()(NestedRoutes, _Component);
+
+  var _super = NestedRoutes_createSuper(NestedRoutes);
+
+  function NestedRoutes() {
+    classCallCheck_default()(this, NestedRoutes);
+
+    return _super.apply(this, arguments);
+  }
+
+  createClass_default()(NestedRoutes, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("div", {
+        className: "content"
+      }, /*#__PURE__*/react_default.a.createElement(HookContent, null)));
+    }
+  }]);
+
+  return NestedRoutes;
+}(react["Component"]);
+
+/* harmony default export */ var _pages_NestedRoutes = (NestedRoutes_NestedRoutes);
 // CONCATENATED MODULE: ./src/client/router/RoutesConfig.js
  //
 
@@ -9517,7 +9593,7 @@ var routesConfig = [{
   /* In order to make nested routes valid, do not add the exact attribute here */
   {
     path: '/nested-routes',
-    component: NestedRoutes
+    component: _pages_NestedRoutes
   }, {
     path: '*',
     component: _404

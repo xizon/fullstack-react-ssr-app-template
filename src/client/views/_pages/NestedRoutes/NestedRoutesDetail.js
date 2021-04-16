@@ -1,21 +1,21 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
 	useParams,
 	useLocation
-} from "react-router-dom";
+} from 'react-router-dom';
 
 import customRoutesConfig from '../../../router/RoutesConfig.js';
 
 
-/* Convert Allowance class component to functional component */ 
-const NestedRoutesDetail = () => {
 
+//Might have mismatching versions of React and the renderer (such as React DOM)
+function HookScript() {
+	
 	// The <Route> that rendered this component has a
 	// path of `/nested-routes/:topicId`. The `:topicId` portion
 	// of the URL indicates a placeholder that we can
 	// get from `useParams()`.
 	let { topicId } = useParams();
-
 	
 	//Click the route to trigger the event
     const theLocation = useLocation();
@@ -24,13 +24,43 @@ const NestedRoutesDetail = () => {
 		
     });
 	
+	return (
+		<></>
+	)
+
+}
+
+
+function HookTopicId() {
+	
+	
+	// The <Route> that rendered this component has a
+	// path of `/nested-routes/:topicId`. The `:topicId` portion
+	// of the URL indicates a placeholder that we can
+	// get from `useParams()`.
+	let { topicId } = useParams();
+  
+  	return topicId;
+}
+
+
+//---
+class NestedRoutesDetail extends Component {
+
+  render() {
 	
 	return (
 		<Fragment>
-			<p>Detail topicId: <span style={{background:"yellow",padding:"5px"}}>{topicId}</span></p>
+		
+		    <HookScript />
+		
+			<p>Detail topicId: <span style={{background:"yellow",padding:"5px"}}><HookTopicId /></span></p>
 		</Fragment>
-	)
-};
+	)  
+	  
+	  
+  }
+    
+}
 
 export default NestedRoutesDetail;
-

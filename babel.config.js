@@ -21,7 +21,13 @@ module.exports = {
     ],
     [
       "@babel/plugin-proposal-class-properties"
-    ]
+    ],
+	["module-resolver", {
+	  "root": ["./src"],
+	  "alias": {
+		"components": "./src/client/components"
+	  }
+	}]
     
   ]
 };

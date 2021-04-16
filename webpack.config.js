@@ -182,8 +182,17 @@ const webpackConfig = {
 	watch: true,
 	node: { fs: 'empty' },
     resolve: {
-        extensions: ['.js', '.es6', '.vue', '.jsx' ]
+        extensions: ['.js', '.es6', '.vue', '.jsx' ],
+		alias: {
+			
+			// specific mappings.
+			// Supports directories and custom aliases for specific files when the express server is running, 
+			// you need to configure the `babel.config.js` at the same time
+			'components': path.resolve(__dirname, './src/client/components' ),
+			
+		}
     },
+	
 	
 	//Exclude react from bundle
 //    externals: {

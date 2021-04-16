@@ -1,31 +1,28 @@
-import React, { Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
 	Route, 
 	Switch, 
 	NavLink,
 	useRouteMatch,
 	useParams
-} from "react-router-dom";
+} from 'react-router-dom';
 import customRoutesConfig from '../../../router/RoutesConfig.js';
 
-import NestedRoutesDetail from "./NestedRoutesDetail.js";
+import NestedRoutesDetail from './NestedRoutesDetail.js';
 
 
-export default (props) => {
-    
+
+//Might have mismatching versions of React and the renderer (such as React DOM)
+function HookContent() {
+	
 	// The `path` lets us build <Route> paths that are
 	// relative to the parent route, while the `url` lets
 	// us build relative links.
 	let { path, url } = useRouteMatch();
 
-    return (
-	  <Fragment>
-
-		{/*
-		<!-- Content   
-		====================================================== -->	
-		*/}
-		<div className="content">
+	
+	return (
+		<Fragment>
 		
 			<h3>Nested Routes Page</h3>
 
@@ -45,12 +42,38 @@ export default (props) => {
 				  <NestedRoutesDetail />
 				</Route>
 			  </Switch>
+		</Fragment>
+	)
 
+}
+
+
+class NestedRoutes extends Component {
+	
+  render() {
+	  
+    return (
+	  <Fragment>
+
+		{/*
+		<!-- Content   
+		====================================================== -->	
+		*/}
+		<div className="content">
+		
+			<HookContent />
+		
 		</div>
 
 
       </Fragment>
     );
+	  
+  }
+    
+}
 
-};
+export default NestedRoutes;
+
+
 
