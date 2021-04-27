@@ -59,20 +59,31 @@ class Posts extends Component {
   render() {
     // Bind data and display
     const preloadedState = this.props.currentData;
+	  
+	//loader
+	let isLoaded = false;
 
     if ( preloadedState == null ) {
         console.log( 'preloadedState: null' );
     } else {
         console.log( 'preloadedState: Return an Array' );
+		isLoaded = true;
     }
     
     return (
 	  <Fragment>
    
             <div className="content">
-                 {
-                   ( preloadedState != null ) ? preloadedState.map((item, i) => <PostItem key={i} {...item} />) : ""
-                  }
+		
+
+				{ isLoaded ? (
+
+				  ( preloadedState != null ) ? preloadedState.map((item, i) => <PostItem key={i} {...item} />) : ""
+
+				) : (
+				  <div>Loading...</div>
+				)}
+
             </div>
        
           

@@ -66,18 +66,22 @@ let globs = {
 
 let customWebsiteVersion     = json.version,
 	customWebsiteAuthor      = ( Object.prototype.toString.call( json.author ) == '[object Object]' ) ? json.author.name : json.author,
-	customWebsiteTitle       = 'React App SSR Starter',
-	customWebsiteDesc        = 'Using react router, axios and express with Server-Side Rendering (SSR).',
-	customWebsiteCanonical   = '',
+	customWebsiteTitle       = json.projectName,
+	customWebsiteDesc        = json.description,
 	customWebsiteGenerator   = 'React App SSR Starter',
 	customWebsiteHash        = randomString({length: 20}),
 	customWebsiteComment     = `
+DO NOT OVERRIDE THIS FILE.
+Generated with "npm run build"
+
 ## Project Name        :  ` + customWebsiteTitle + `
+## Project Description :  ` + customWebsiteDesc + `
+## Project URL         :  ` + json.projectURL + `
 ## Version             :  ` + customWebsiteVersion + `
-## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
+## Based on            :  React App SSR Starter (` + json.homepage + `)
 ## Last Update         :  ` + moment().format( "MMMM D, YYYY" ) + `
-## Created by          :  UIUX Lab (https://uiux.cc)
-## Contact Us          :  uiuxlab@gmail.com
+## Created by          :  ` + json.createdInfo + ( json.email != '' ? ' (' + json.email + ')' : '' ) + `
+## Released under the ` + json.license + ` license.
 	`;
 
 
@@ -137,7 +141,6 @@ class ReplacePlaceholderForFile {
 					if ( data.length > 0 && data.indexOf( '</html>' ) >= 0 ) {
 						data = data.replace(/\@\@\{website_title\}/g, customWebsiteTitle )
 									.replace(/\@\@\{website_desc\}/g, customWebsiteDesc )
-									.replace(/\@\@\{website_canonical\}/g, customWebsiteCanonical )
 									.replace(/\@\@\{website_author\}/g, customWebsiteAuthor )
 									.replace(/\@\@\{website_generator\}/g, customWebsiteGenerator )
 									.replace(/\@\@\{website_version\}/g, customWebsiteVersion )

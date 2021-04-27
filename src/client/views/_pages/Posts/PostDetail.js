@@ -62,37 +62,47 @@ class PostDetail extends Component {
   render() {
     // Bind data and display
     const preloadedState = this.props.currentData;
+	  
+	//loader
+	let isLoaded = false;
  
     if ( preloadedState == null ) {
         console.log( 'preloadedState: null' );
     } else {
         console.log( 'preloadedState: Return an Array' );
+		isLoaded = true;
     }
+	  
     
     return (
 	  <Fragment>
    
             <div className="content">
-                { 
-                ( preloadedState != null ) ? preloadedState.map((item, i) => 
-                                                                
-                      <div key={"detail"+i} style={{padding: "15px", margin: "10px", display: "inline-block", border: "1px solid #ddd", width: "420px", textAlign: "left", position: "relative"}}>
-                        
-                            <img src={item.flag} alt="" style={{width: "400px", display: "inline-block" }} />
-                            <hr />
-                            <p><strong>Name: </strong>{item.name}</p>
-                            <p><strong>Capital: </strong>{item.Capital}</p>
-                            <p><strong>Population: </strong>{item.population}</p>
-                            <p><strong>Subregion: </strong>{item.subregion}</p>
-                            <p><strong>Languages: </strong></p>   
-                            <div>
-                                {item.languages.map((lanItem, k) => <span key={"lan"+k}>{lanItem.name}</span>)}
-                            </div>
-                                                               
-                      </div>  )
-                 : ""
-                }
-        
+		
+				{ isLoaded ? (
+
+					( preloadedState != null ) ? preloadedState.map((item, i) => 
+
+						  <div key={"detail"+i} style={{padding: "15px", margin: "10px", display: "inline-block", border: "1px solid #ddd", width: "420px", textAlign: "left", position: "relative"}}>
+
+								<img src={item.flag} alt="" style={{width: "400px", display: "inline-block" }} />
+								<hr />
+								<p><strong>Name: </strong>{item.name}</p>
+								<p><strong>Capital: </strong>{item.Capital}</p>
+								<p><strong>Population: </strong>{item.population}</p>
+								<p><strong>Subregion: </strong>{item.subregion}</p>
+								<p><strong>Languages: </strong></p>   
+								<div>
+									{item.languages.map((lanItem, k) => <span key={"lan"+k}>{lanItem.name}</span>)}
+								</div>
+
+						  </div>  )
+					 : ""
+
+				) : (
+				  <div>Loading...</div>
+				)}
+		
             </div>
        
           

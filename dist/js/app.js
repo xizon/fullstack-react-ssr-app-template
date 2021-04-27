@@ -1,11 +1,16 @@
 /*!
  * 
+ * DO NOT OVERRIDE THIS FILE.
+ * Generated with "npm run build"
+ * 
  * ## Project Name        :  React App SSR Starter
- * ## Version             :  0.0.11
- * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter)
- * ## Last Update         :  April 16, 2021
- * ## Created by          :  UIUX Lab (https://uiux.cc)
- * ## Contact Us          :  uiuxlab@gmail.com
+ * ## Project Description :  Using react, redux, router, axios and express with Server-Side Rendering (SSR).
+ * ## Project URL         :  https://uiux.cc
+ * ## Version             :  0.0.12
+ * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter#readme)
+ * ## Last Update         :  April 27, 2021
+ * ## Created by          :  UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com)
+ * ## Released under the MIT license.
  * 	
  */
 /******/ (function(modules) { // webpackBootstrap
@@ -8877,21 +8882,24 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       // Bind data and display
-      var preloadedState = this.props.currentData;
+      var preloadedState = this.props.currentData; //loader
+
+      var isLoaded = false;
 
       if (preloadedState == null) {
         console.log('preloadedState: null');
       } else {
         console.log('preloadedState: Return an Array');
+        isLoaded = true;
       }
 
       return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("div", {
         className: "content"
-      }, preloadedState != null ? preloadedState.map(function (item, i) {
+      }, isLoaded ? preloadedState != null ? preloadedState.map(function (item, i) {
         return /*#__PURE__*/react_default.a.createElement(PostItem, extends_default()({
           key: i
         }, item));
-      }) : ""));
+      }) : "" : /*#__PURE__*/react_default.a.createElement("div", null, "Loading...")));
     }
   }], [{
     key: "appSyncRequestFetching",
@@ -9026,17 +9034,20 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       // Bind data and display
-      var preloadedState = this.props.currentData;
+      var preloadedState = this.props.currentData; //loader
+
+      var isLoaded = false;
 
       if (preloadedState == null) {
         console.log('preloadedState: null');
       } else {
         console.log('preloadedState: Return an Array');
+        isLoaded = true;
       }
 
       return /*#__PURE__*/react_default.a.createElement(react["Fragment"], null, /*#__PURE__*/react_default.a.createElement("div", {
         className: "content"
-      }, preloadedState != null ? preloadedState.map(function (item, i) {
+      }, isLoaded ? preloadedState != null ? preloadedState.map(function (item, i) {
         return /*#__PURE__*/react_default.a.createElement("div", {
           key: "detail" + i,
           style: {
@@ -9060,7 +9071,7 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
             key: "lan" + k
           }, lanItem.name);
         })));
-      }) : ""));
+      }) : "" : /*#__PURE__*/react_default.a.createElement("div", null, "Loading...")));
     }
   }], [{
     key: "appSyncRequestFetching",

@@ -86,34 +86,60 @@ $ npm run dev
 http://localhost:3000
 ```
 
+The new code is recommended to be bundled before debugging.
+
+
 **Step 8 (Optional).** Start Reactjs application with PM2 as a service (only works if you are using Node v13.9.0 or above.)
 
-
-8.1) Installing PM2. With NPM
+8.1) Installing Node and NPM
 
 ```sh
-$ npm install pm2@latest -g
+$ curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
+$ sudo yum install nodejs
+$ node --version  #v14.16.1
+$ npm --version   #6.14.12
+$ which node babel-node #check the location of node and babel-node
 ```
 
 
-8.2) Frequently used commands:
+8.2) Installing PM2. With NPM
 
 ```sh
-#into your `"react-app-ssr-starter/"` folder directory.
-$ cd /{your_directory}/react-app-ssr-starter
+$ sudo npm install pm2@latest -g
+```
 
-#install Babel globally on your machine
+
+8.3) Install Babel globally on your machine
+
+```sh
+$ sudo npm install -g babel-cli
 $ sudo npm install -g @babel/core @babel/cli @babel/preset-env 
+```
+
+
+8.4) Frequently used commands for PM2:
+
+```sh
+#into your `"uix-kit-react/"` folder directory.
+$ cd /{your_directory}/uix-kit-react
+
 
 #use babel-node with pm2
 $ pm2 start ecosystem.config.js  --interpreter babel-node  
 
 #other commands
+$ pm2 restart ecosystem.config.js –-interpreter babel-node
 $ pm2 stop ecosystem.config.js
 $ pm2 delete ecosystem.config.js
 $ pm2 list
 $ pm2 logs
 ```
+
+
+8.5) Use domain to access your React appication.
+
+You had created a basic React App from here, then you need to deploy a React App on Apache or Nginx web server. Please refer to the network for the tutorial on setting up the proxy.
+
 
 
 

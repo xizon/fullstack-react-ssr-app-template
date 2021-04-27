@@ -1,5 +1,11 @@
 # Changelog
 
+#### = 0.0.12 (April 26, 2021) =
+
+* Tweak: Detail optimization.
+* Tweak: Refine the README documents.
+
+
 #### = 0.0.11 (April 16, 2021) =
 
 * Supports directories and custom aliases for specific files when the express server is running.
