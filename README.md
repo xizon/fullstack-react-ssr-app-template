@@ -120,8 +120,8 @@ $ sudo npm install -g @babel/core @babel/cli @babel/preset-env
 8.4) Frequently used commands for PM2:
 
 ```sh
-#into your `"uix-kit-react/"` folder directory.
-$ cd /{your_directory}/uix-kit-react
+#into your `"react-app-ssr-starter/"` folder directory.
+$ cd /{your_directory}/react-app-ssr-starter
 
 
 #use babel-node with pm2
