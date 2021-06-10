@@ -2,7 +2,7 @@
 
 
 
-#### = 0.0.15 (June 10, 2021) =
+#### = 0.0.16 (June 10, 2021) =
 
 * Tweak: Optimized the structure of redux.
 

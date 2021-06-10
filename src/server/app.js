@@ -58,7 +58,6 @@ app.use(cors({origin: '*' }));
 
 
 
-
 app.get('*', (req, res) => {
 
     // (1)
@@ -91,15 +90,17 @@ app.get('*', (req, res) => {
 	});
 	
 	const dispatchEvents = 	actions.map(function (promiseTask) {
-		
 		const _promiseTask = promiseTask === null ? [] : promiseTask;
 		
 		return Promise.all(
 		
 			_promiseTask.map(function (item) {
-				return new Promise(function (resolve) {
+				//console.log('item: ', item ); //Promise { <pending> }
+				return new Promise(function (resolve, reject) {
+					//console.log('resolve: ', resolve ); //[Function (anonymous)]
 					return item.then(resolve);
 				});
+				
 			})
 		);
 	});
@@ -136,6 +137,7 @@ app.get('*', (req, res) => {
 
 
 });
+
 
 app.listen(port, () => console.log(`Frontend service listening on port: ${port}`));
 

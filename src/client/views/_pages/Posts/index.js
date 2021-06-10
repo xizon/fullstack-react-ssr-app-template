@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
-import { fetchDemoList } from '../../../actions/demoListActions.js';
+import actionCreators from '../../../actions/demoListActions.js';
 import PostItem from './PostItem.js';
          
 class Posts extends Component {
@@ -20,37 +20,80 @@ class Posts extends Component {
 	//Static properties/methords are the properties of the class. 
 	//@link to: `src/server/app.js`
 	/*
-	When requesting from the server, the program will look for the react component with 
-	the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
-	initial update and rendering of the data(SSR).
-
-	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
-		//...
-	}	
+	 * When requesting from the server, the program will look for the react component with 
+	 * the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
+	 * initial update and rendering of the data(SSR).
+	 
+		if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
+			//...
+		}	
+	
 	*/
 	
 	/*
 	Dispatch an async function. The `redux-thunk` middleware handles running this function.
+	Implementation principle:
+	(put the following code in the app.get('*', (req, res) => {...} code snippet in `src/server/app.js`):
 	
+	-------------------
+
 	store.dispatch(async function(dispatch) {
-	
-	    dispatch({ type: 'INCREMENT' });
-	    // <h1 data-reactroot="">Count: 1</h1>
-	    console.log(renderToString(createElement(MyComponent)));
 
-	    await new Promise(resolve => setImmediate(resolve));
+		// Wait for all the `httpRequest` functions, if they are resolved, run 'store.dispatch()'
+		const httpRequest = () => {
+			return new Promise( (resolve,reject) => {
+				axios({
+					timeout: 15000,
+					method: 'get',
+					url: `https://restcountries.eu/rest/v2`,
+					responseType: 'json'
+				}).then(function (response) {
+					resolve( response );
+				})
+				.catch(function (error) {
+					console.log( error );
+				});
+			});
+		};
 
-	    dispatch({ type: 'DECREMENT' });
-	    // <h1 data-reactroot="">Count: 0</h1>
-	    console.log(renderToString(createElement(MyComponent)));
+
+		const getApiData = await httpRequest();
+		const action = {
+			type: 'RECEIVE_DEMO_LIST',
+			payload: getApiData.data
+		}
+		dispatch( action );
+
+
+
+		// Send the rendered html to browser.
+		const indexFile = path.join(__dirname,'../../public/index.html');
+		fs.readFile(indexFile, 'utf8', (err, data) => {
+			if (err) {
+				console.error('Something went wrong:', err);
+				return res.status(500).send('Oops, better luck next time!');
+			} 
+
+			//
+			const context = {};
+			const content = render(req.path, store, context, data);
+
+			if (context.notFound) {
+				res.status(404);
+			}
+
+			res.send(content);
+		});
+
 	});
+
 	
 	*/
     static appSyncRequestFetching( storeAPI ) {
 		const AppDispatch = storeAPI.dispatch;
 		
 		//
-		const data = fetchDemoList();
+		const data = actionCreators();
 		return [ AppDispatch(data) ];
     } 
 
@@ -70,7 +113,7 @@ class Posts extends Component {
 		const { contentInformation } = this.props;
 
 		// Request data
-        contentInformation(fetchDemoList());
+        contentInformation(actionCreators());
    
         
     }
@@ -124,9 +167,9 @@ const mapStateToProps = (storeState) => {
 };
 
 // Bind the introduced Actions
-const mapDispatchToProps = (dispatchingAction) => {
+const mapDispatchToProps = (storeDispatch) => {
     return {
-        contentInformation: dispatchingAction  //Throw redux
+        contentInformation: storeDispatch  //Throw redux
     }
 };
 

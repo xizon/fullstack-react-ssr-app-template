@@ -6,7 +6,7 @@
  * ## Project Name        :  React App SSR Starter
  * ## Project Description :  Using react, redux, router, axios and express with Server-Side Rendering (SSR).
  * ## Project URL         :  https://uiux.cc
- * ## Version             :  0.0.15
+ * ## Version             :  0.0.16
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter#readme)
  * ## Last Update         :  June 10, 2021
  * ## Created by          :  UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com)
@@ -8737,10 +8737,13 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 
 
 
-var demoListActions_fetchDemoList = function fetchDemoList() {
+
+var demoListActions_actionCreators = function actionCreators() {
+  // The function defined by async will return the value of a `Promise()` object resolve by default, 
+  // so the `then()` can be used directly, and the returned value is the params of the `then()`
   return /*#__PURE__*/function () {
-    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatchingAction) {
-      var res;
+    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(storeDispatch) {
+      var res, action;
       return regenerator_default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -8752,13 +8755,13 @@ var demoListActions_fetchDemoList = function fetchDemoList() {
               res = _context.sent;
               //const res = await axios.get( `../../assets/json/Posts.json` );
               //The Redux store has a method called `store.dispatch()`.
-              //@https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
-              dispatchingAction({
+              action = {
                 type: 'RECEIVE_DEMO_LIST',
                 payload: res.data
-              });
+              };
+              storeDispatch(action);
 
-            case 4:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -8771,6 +8774,8 @@ var demoListActions_fetchDemoList = function fetchDemoList() {
     };
   }();
 };
+
+/* harmony default export */ var demoListActions = (demoListActions_actionCreators);
 // CONCATENATED MODULE: ./src/client/views/_pages/Posts/PostItem.js
 
 
@@ -8850,28 +8855,64 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
   //@link to: `src/server/app.js`
 
   /*
-  When requesting from the server, the program will look for the react component with 
-  the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
-  initial update and rendering of the data(SSR).
+   * When requesting from the server, the program will look for the react component with 
+   * the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
+   * initial update and rendering of the data(SSR).
+   
   	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
-  	//...
-  }	
+  		//...
+  	}	
+  
   */
 
   /*
   Dispatch an async function. The `redux-thunk` middleware handles running this function.
+  Implementation principle:
+  (put the following code in the app.get('*', (req, res) => {...} code snippet in `src/server/app.js`):
   
-  store.dispatch(async function(dispatch) {
+  -------------------
+  	store.dispatch(async function(dispatch) {
+  		// Wait for all the `httpRequest` functions, if they are resolved, run 'store.dispatch()'
+  	const httpRequest = () => {
+  		return new Promise( (resolve,reject) => {
+  			axios({
+  				timeout: 15000,
+  				method: 'get',
+  				url: `https://restcountries.eu/rest/v2`,
+  				responseType: 'json'
+  			}).then(function (response) {
+  				resolve( response );
+  			})
+  			.catch(function (error) {
+  				console.log( error );
+  			});
+  		});
+  	};
   
-      dispatch({ type: 'INCREMENT' });
-      // <h1 data-reactroot="">Count: 1</h1>
-      console.log(renderToString(createElement(MyComponent)));
-  	    await new Promise(resolve => setImmediate(resolve));
-  	    dispatch({ type: 'DECREMENT' });
-      // <h1 data-reactroot="">Count: 0</h1>
-      console.log(renderToString(createElement(MyComponent)));
-  });
+  	const getApiData = await httpRequest();
+  	const action = {
+  		type: 'RECEIVE_DEMO_LIST',
+  		payload: getApiData.data
+  	}
+  	dispatch( action );
   
+  		// Send the rendered html to browser.
+  	const indexFile = path.join(__dirname,'../../public/index.html');
+  	fs.readFile(indexFile, 'utf8', (err, data) => {
+  		if (err) {
+  			console.error('Something went wrong:', err);
+  			return res.status(500).send('Oops, better luck next time!');
+  		} 
+  			//
+  		const context = {};
+  		const content = render(req.path, store, context, data);
+  			if (context.notFound) {
+  			res.status(404);
+  		}
+  			res.send(content);
+  	});
+  	});
+  	
   */
 
 
@@ -8891,7 +8932,7 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
       console.log(this.props);
       var contentInformation = this.props.contentInformation; // Request data
 
-      contentInformation(demoListActions_fetchDemoList());
+      contentInformation(demoListActions());
     }
   }, {
     key: "render",
@@ -8921,7 +8962,7 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
     value: function appSyncRequestFetching(storeAPI) {
       var AppDispatch = storeAPI.dispatch; //
 
-      var data = demoListActions_fetchDemoList();
+      var data = demoListActions();
       return [AppDispatch(data)];
     }
   }]);
@@ -8939,9 +8980,9 @@ var Posts_mapStateToProps = function mapStateToProps(storeState) {
 }; // Bind the introduced Actions
 
 
-var Posts_mapDispatchToProps = function mapDispatchToProps(dispatchingAction) {
+var Posts_mapDispatchToProps = function mapDispatchToProps(storeDispatch) {
   return {
-    contentInformation: dispatchingAction //Throw redux
+    contentInformation: storeDispatch //Throw redux
 
   };
 }; // The most important step is to bind the required Reducer and Actions to the current page 
@@ -8953,10 +8994,13 @@ var Posts_mapDispatchToProps = function mapDispatchToProps(dispatchingAction) {
 
 
 
-var demoListDetailActions_fetchDemoListDetail = function fetchDemoListDetail(id) {
+
+var demoListDetailActions_actionCreators = function actionCreators(id) {
+  // The function defined by async will return the value of a `Promise()` object resolve by default, 
+  // so the `then()` can be used directly, and the returned value is the params of the `then()`
   return /*#__PURE__*/function () {
-    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatchingAction) {
-      var res;
+    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(storeDispatch) {
+      var res, action;
       return regenerator_default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -8966,15 +9010,15 @@ var demoListDetailActions_fetchDemoListDetail = function fetchDemoListDetail(id)
 
             case 2:
               res = _context.sent;
-              //const res = await axios.get( `../../assets/json/PostDetail.json` );
+              //const res = await axios.get( `../../assets/json/Posts.json` );
               //The Redux store has a method called `store.dispatch()`.
-              //@https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
-              dispatchingAction({
+              action = {
                 type: 'RECEIVE_DEMO_LISTDETAIL',
                 payload: res.data
-              });
+              };
+              storeDispatch(action);
 
-            case 4:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -8987,6 +9031,8 @@ var demoListDetailActions_fetchDemoListDetail = function fetchDemoListDetail(id)
     };
   }();
 };
+
+/* harmony default export */ var demoListDetailActions = (demoListDetailActions_actionCreators);
 // CONCATENATED MODULE: ./src/client/views/_pages/Posts/PostDetail.js
 
 
@@ -9019,27 +9065,71 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
   //@link to: `src/server/app.js`
 
   /*
-  When requesting from the server, the program will look for the react component with 
-  the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
-  initial update and rendering of the data(SSR).
+   * When requesting from the server, the program will look for the react component with 
+   * the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
+   * initial update and rendering of the data(SSR).
+   
   	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
-  	//...
-  }	
+  		//...
+  	}	
+  
   */
 
   /*
   Dispatch an async function. The `redux-thunk` middleware handles running this function.
+  Implementation principle:
+  (put the following code in the app.get('*', (req, res) => {...} code snippet in `src/server/app.js`):
   
-  store.dispatch(async function(dispatch) {
+  -------------------
+  	store.dispatch(async function(dispatch) {
   
-      dispatch({ type: 'INCREMENT' });
-      // <h1 data-reactroot="">Count: 1</h1>
-      console.log(renderToString(createElement(MyComponent)));
-  	    await new Promise(resolve => setImmediate(resolve));
-  	    dispatch({ type: 'DECREMENT' });
-      // <h1 data-reactroot="">Count: 0</h1>
-      console.log(renderToString(createElement(MyComponent)));
-  });
+  	const currentID = req.path.split( '/' ).pop();
+  	if ( req.path.indexOf( '/posts/' ) >= 0 ) {
+  		
+  		// Wait for all the `httpRequest` functions, if they are resolved, run 'store.dispatch()'
+  		const httpRequest = () => {
+  			return new Promise( (resolve,reject) => {
+  				axios({
+  					timeout: 15000,
+  					method: 'get',
+  					url: `https://restcountries.eu/rest/v2/name/${currentID}`,
+  					responseType: 'json'
+  				}).then(function (response) {
+  					resolve( response );
+  				})
+  				.catch(function (error) {
+  					console.log( error );
+  				});
+  			});
+  		};
+  
+  		const getApiData = await httpRequest();
+  		const action = {
+  			type: 'RECEIVE_DEMO_LISTDETAIL',
+  			payload: getApiData.data
+  		}
+  		dispatch( action );	
+  		
+  	}
+  
+  
+  	// Send the rendered html to browser.
+  	const indexFile = path.join(__dirname,'../../public/index.html');
+  	fs.readFile(indexFile, 'utf8', (err, data) => {
+  		if (err) {
+  			console.error('Something went wrong:', err);
+  			return res.status(500).send('Oops, better luck next time!');
+  		} 
+  			//
+  		const context = {};
+  		const content = render(req.path, store, context, data);
+  			if (context.notFound) {
+  			res.status(404);
+  		}
+  			res.send(content);
+  	});
+  	});
+  
   
   */
 
@@ -9060,7 +9150,7 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
       console.log(this.props);
       var contentInformation = this.props.contentInformation; // Request data
 
-      contentInformation(demoListDetailActions_fetchDemoListDetail(this.props.match.params.post_id));
+      contentInformation(demoListDetailActions(this.props.match.params.post_id));
     }
   }, {
     key: "render",
@@ -9112,7 +9202,7 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
       var AppPath = storeAPI.path; //
 
       var currentID = AppPath.split('/').pop();
-      var data = demoListDetailActions_fetchDemoListDetail(currentID);
+      var data = demoListDetailActions(currentID);
       return [AppDispatch(data)];
     }
   }]);
@@ -9130,9 +9220,9 @@ var PostDetail_mapStateToProps = function mapStateToProps(storeState) {
 }; // Bind the introduced Actions
 
 
-var PostDetail_mapDispatchToProps = function mapDispatchToProps(dispatchingAction) {
+var PostDetail_mapDispatchToProps = function mapDispatchToProps(storeDispatch) {
   return {
-    contentInformation: dispatchingAction //Throw redux
+    contentInformation: storeDispatch //Throw redux
 
   };
 }; // The most important step is to bind the required Reducer and Actions to the current page 
