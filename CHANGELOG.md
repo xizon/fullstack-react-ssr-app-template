@@ -1,5 +1,13 @@
 # Changelog
 
+
+
+#### = 0.0.15 (June 10, 2021) =
+
+* Tweak: Optimized the structure of redux.
+
+
+
 #### = 0.0.12 (April 26, 2021) =
 
 * Tweak: Detail optimization.

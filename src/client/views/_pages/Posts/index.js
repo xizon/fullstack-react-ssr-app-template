@@ -17,7 +17,6 @@ class Posts extends Component {
    
 	}
     
-	
 	//Static properties/methords are the properties of the class. 
 	//@link to: `src/server/app.js`
 	/*
@@ -26,12 +25,33 @@ class Posts extends Component {
 	initial update and rendering of the data(SSR).
 
 	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
-		console.log( 'route.component.appSyncRequestFetching: ' );
-		console.log( route.component.appSyncRequestFetching );	
+		//...
 	}	
 	*/
-    static appSyncRequestFetching ({ dispatch }) {
-        return [ dispatch( fetchDemoList() ) ];
+	
+	/*
+	Dispatch an async function. The `redux-thunk` middleware handles running this function.
+	
+	store.dispatch(async function(dispatch) {
+	
+	    dispatch({ type: 'INCREMENT' });
+	    // <h1 data-reactroot="">Count: 1</h1>
+	    console.log(renderToString(createElement(MyComponent)));
+
+	    await new Promise(resolve => setImmediate(resolve));
+
+	    dispatch({ type: 'DECREMENT' });
+	    // <h1 data-reactroot="">Count: 0</h1>
+	    console.log(renderToString(createElement(MyComponent)));
+	});
+	
+	*/
+    static appSyncRequestFetching( storeAPI ) {
+		const AppDispatch = storeAPI.dispatch;
+		
+		//
+		const data = fetchDemoList();
+		return [ AppDispatch(data) ];
     } 
 
     /**
@@ -97,16 +117,16 @@ class Posts extends Component {
     
 // Subscribe to the required state in the reducers is bound 
 // here (for details of the data structure: initState)
-const mapStateToProps = (state) => {
+const mapStateToProps = (storeState) => {
     return {
-        currentData: state.listData.items  //Receive redux
+        currentData: storeState.listData.items  //Receive redux
     }
 };
 
 // Bind the introduced Actions
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatchingAction) => {
     return {
-        contentInformation: dispatch  //Throw redux
+        contentInformation: dispatchingAction  //Throw redux
     }
 };
 

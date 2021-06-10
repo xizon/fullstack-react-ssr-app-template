@@ -6,9 +6,9 @@
  * ## Project Name        :  React App SSR Starter
  * ## Project Description :  Using react, redux, router, axios and express with Server-Side Rendering (SSR).
  * ## Project URL         :  https://uiux.cc
- * ## Version             :  0.0.12
+ * ## Version             :  0.0.15
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter#readme)
- * ## Last Update         :  April 27, 2021
+ * ## Last Update         :  June 10, 2021
  * ## Created by          :  UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com)
  * ## Released under the MIT license.
  * 	
@@ -8739,7 +8739,7 @@ var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
 
 var demoListActions_fetchDemoList = function fetchDemoList() {
   return /*#__PURE__*/function () {
-    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatch) {
+    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatchingAction) {
       var res;
       return regenerator_default.a.wrap(function _callee$(_context) {
         while (1) {
@@ -8751,9 +8751,9 @@ var demoListActions_fetchDemoList = function fetchDemoList() {
             case 2:
               res = _context.sent;
               //const res = await axios.get( `../../assets/json/Posts.json` );
-              //The Redux store has a method called dispatch.
+              //The Redux store has a method called `store.dispatch()`.
               //@https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
-              dispatch({
+              dispatchingAction({
                 type: 'RECEIVE_DEMO_LIST',
                 payload: res.data
               });
@@ -8854,9 +8854,24 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
   the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
   initial update and rendering of the data(SSR).
   	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
-  	console.log( 'route.component.appSyncRequestFetching: ' );
-  	console.log( route.component.appSyncRequestFetching );	
+  	//...
   }	
+  */
+
+  /*
+  Dispatch an async function. The `redux-thunk` middleware handles running this function.
+  
+  store.dispatch(async function(dispatch) {
+  
+      dispatch({ type: 'INCREMENT' });
+      // <h1 data-reactroot="">Count: 1</h1>
+      console.log(renderToString(createElement(MyComponent)));
+  	    await new Promise(resolve => setImmediate(resolve));
+  	    dispatch({ type: 'DECREMENT' });
+      // <h1 data-reactroot="">Count: 0</h1>
+      console.log(renderToString(createElement(MyComponent)));
+  });
+  
   */
 
 
@@ -8903,9 +8918,11 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
     }
   }], [{
     key: "appSyncRequestFetching",
-    value: function appSyncRequestFetching(_ref) {
-      var dispatch = _ref.dispatch;
-      return [dispatch(demoListActions_fetchDemoList())];
+    value: function appSyncRequestFetching(storeAPI) {
+      var AppDispatch = storeAPI.dispatch; //
+
+      var data = demoListActions_fetchDemoList();
+      return [AppDispatch(data)];
     }
   }]);
 
@@ -8914,17 +8931,17 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
 // here (for details of the data structure: initState)
 
 
-var Posts_mapStateToProps = function mapStateToProps(state) {
+var Posts_mapStateToProps = function mapStateToProps(storeState) {
   return {
-    currentData: state.listData.items //Receive redux
+    currentData: storeState.listData.items //Receive redux
 
   };
 }; // Bind the introduced Actions
 
 
-var Posts_mapDispatchToProps = function mapDispatchToProps(dispatch) {
+var Posts_mapDispatchToProps = function mapDispatchToProps(dispatchingAction) {
   return {
-    contentInformation: dispatch //Throw redux
+    contentInformation: dispatchingAction //Throw redux
 
   };
 }; // The most important step is to bind the required Reducer and Actions to the current page 
@@ -8938,7 +8955,7 @@ var Posts_mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 var demoListDetailActions_fetchDemoListDetail = function fetchDemoListDetail(id) {
   return /*#__PURE__*/function () {
-    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatch) {
+    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatchingAction) {
       var res;
       return regenerator_default.a.wrap(function _callee$(_context) {
         while (1) {
@@ -8950,9 +8967,9 @@ var demoListDetailActions_fetchDemoListDetail = function fetchDemoListDetail(id)
             case 2:
               res = _context.sent;
               //const res = await axios.get( `../../assets/json/PostDetail.json` );
-              //The Redux store has a method called dispatch.
+              //The Redux store has a method called `store.dispatch()`.
               //@https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
-              dispatch({
+              dispatchingAction({
                 type: 'RECEIVE_DEMO_LISTDETAIL',
                 payload: res.data
               });
@@ -9006,9 +9023,24 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
   the `appSyncRequestFetching` function (this function is named by the developer) to complete the 
   initial update and rendering of the data(SSR).
   	if ( typeof route.component.appSyncRequestFetching !== typeof undefined ) {
-  	console.log( 'route.component.appSyncRequestFetching: ' );
-  	console.log( route.component.appSyncRequestFetching );	
+  	//...
   }	
+  */
+
+  /*
+  Dispatch an async function. The `redux-thunk` middleware handles running this function.
+  
+  store.dispatch(async function(dispatch) {
+  
+      dispatch({ type: 'INCREMENT' });
+      // <h1 data-reactroot="">Count: 1</h1>
+      console.log(renderToString(createElement(MyComponent)));
+  	    await new Promise(resolve => setImmediate(resolve));
+  	    dispatch({ type: 'DECREMENT' });
+      // <h1 data-reactroot="">Count: 0</h1>
+      console.log(renderToString(createElement(MyComponent)));
+  });
+  
   */
 
 
@@ -9075,11 +9107,13 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
     }
   }], [{
     key: "appSyncRequestFetching",
-    value: function appSyncRequestFetching(_ref) {
-      var dispatch = _ref.dispatch,
-          path = _ref.path;
-      var currentID = path.split('/').pop();
-      return [dispatch(demoListDetailActions_fetchDemoListDetail(currentID))];
+    value: function appSyncRequestFetching(storeAPI) {
+      var AppDispatch = storeAPI.dispatch;
+      var AppPath = storeAPI.path; //
+
+      var currentID = AppPath.split('/').pop();
+      var data = demoListDetailActions_fetchDemoListDetail(currentID);
+      return [AppDispatch(data)];
     }
   }]);
 
@@ -9088,17 +9122,17 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
 // here (for details of the data structure: initState)
 
 
-var PostDetail_mapStateToProps = function mapStateToProps(state) {
+var PostDetail_mapStateToProps = function mapStateToProps(storeState) {
   return {
-    currentData: state.listDetailData.detail //Receive redux
+    currentData: storeState.listDetailData.detail //Receive redux
 
   };
 }; // Bind the introduced Actions
 
 
-var PostDetail_mapDispatchToProps = function mapDispatchToProps(dispatch) {
+var PostDetail_mapDispatchToProps = function mapDispatchToProps(dispatchingAction) {
   return {
-    contentInformation: dispatch //Throw redux
+    contentInformation: dispatchingAction //Throw redux
 
   };
 }; // The most important step is to bind the required Reducer and Actions to the current page 
