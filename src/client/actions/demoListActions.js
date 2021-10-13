@@ -4,9 +4,9 @@ const actionCreators = () => {
     
 	// The function defined by async will return the value of a `Promise()` object resolve by default, 
 	// so the `then()` can be used directly, and the returned value is the params of the `then()`
-    return async (storeDispatch) => {
+    return async (dispatchFunction) => {
 
-        const res = await axios.get( `https://restcountries.eu/rest/v2` );
+        const res = await axios.get( `https://restcountries.com/v2/all` );
 		//const res = await axios.get( `../../assets/json/Posts.json` );
 		
 		
@@ -16,7 +16,7 @@ const actionCreators = () => {
 			payload: res.data
 		}
 
-        storeDispatch(action);
+        dispatchFunction(action);
         
     }
 }

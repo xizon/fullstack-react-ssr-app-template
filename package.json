@@ -5,7 +5,7 @@
   "projectName": "React App SSR Starter",
   "createdInfo": "UIUX Lab (https://uiux.cc)",
   "projectURL": "https://uiux.cc",
-  "version": "0.0.16",
+  "version": "0.0.2",
   "description": "Using react, redux, router, axios and express with Server-Side Rendering (SSR).",
   "main": "webpack.config.js",
   "directories": {
@@ -79,7 +79,7 @@
     "@babel/preset-typescript": "^7.1.0",
     "@babel/register": "^7.13.14",
     "moment": "^2.23.0",
-	"axios": "^0.21.1",
+    "axios": "^0.21.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "ignore-styles": "^5.0.1",

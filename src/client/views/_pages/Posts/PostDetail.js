@@ -48,7 +48,7 @@ class PostDetail extends Component {
 					axios({
 						timeout: 15000,
 						method: 'get',
-						url: `https://restcountries.eu/rest/v2/name/${currentID}`,
+						url: `https://restcountries.com/v2/name/${currentID}`,
 						responseType: 'json'
 					}).then(function (response) {
 						resolve( response );
@@ -107,33 +107,23 @@ class PostDetail extends Component {
     } 
 	
 
-    
-
-    /**
-     * componentDidMount() is invoked immediately after a component 
-     * is mounted (inserted into the tree). 
-     * Initialization that requires DOM nodes should go here. 
-     * If you need to load data from a remote endpoint, this 
-     * is a good place to instantiate the network request.
-     */
     componentDidMount() {
 
-		//Receive contentInformation redux from the parent page
+		//Receive redux from the parent page
 		console.log('[detail of post]this.props:' );
 		console.log(this.props);
 		
 		
-		
-		const { contentInformation } = this.props;
+		//from `mapDispatchToProps()`
+        this.props.actionCreators( this.props.match.params.post_id );
 
-		// Request data
-        contentInformation(actionCreators( this.props.match.params.post_id ));
 		
     }
 
 
   render() {
-    // Bind data and display
+
+	//from `mapStateToProps()`
     const preloadedState = this.props.currentData;
 	  
 	//loader
@@ -186,20 +176,31 @@ class PostDetail extends Component {
 
 }
 
-// Subscribe to the required state in the reducers is bound 
-// here (for details of the data structure: initState)
-const mapStateToProps = (storeState) => {
+
+// Subscribe to the required state in the reducers is bound here (for details of the data structure: initState)
+// You can call it in `this.props`
+const mapStateToProps = (state) => {
+	const { listDetailData } = state; //Receive redux
+
     return {
-        currentData: storeState.listDetailData.detail   //Receive redux
+        currentData: listDetailData.detail  
     }
 };
 
-// Bind the introduced Actions
-const mapDispatchToProps = (storeDispatch) => {
-    return {
-        contentInformation: storeDispatch   //Throw redux
-    }
-};
+// Bind the introduced Actions. You will normally make use of this by returning new functions that call `dispatch()` inside themselves
+// You can call it in `this.props`
+/*
+Like this:
+const mapDispatchToProps = (dispatch) => {
+	return {
+		increment: () => dispatch({ type: 'INCREMENT' }),
+		decrement: () => dispatch({ type: 'DECREMENT' }),
+	}
+}
+*/
+const mapDispatchToProps = {
+	actionCreators
+}
 
 
 

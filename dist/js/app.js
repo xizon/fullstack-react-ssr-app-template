@@ -6,9 +6,9 @@
  * ## Project Name        :  React App SSR Starter
  * ## Project Description :  Using react, redux, router, axios and express with Server-Side Rendering (SSR).
  * ## Project URL         :  https://uiux.cc
- * ## Version             :  0.0.16
+ * ## Version             :  0.0.2
  * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter#readme)
- * ## Last Update         :  June 10, 2021
+ * ## Last Update         :  October 13, 2021
  * ## Created by          :  UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com)
  * ## Released under the MIT license.
  * 	
@@ -8742,14 +8742,14 @@ var demoListActions_actionCreators = function actionCreators() {
   // The function defined by async will return the value of a `Promise()` object resolve by default, 
   // so the `then()` can be used directly, and the returned value is the params of the `then()`
   return /*#__PURE__*/function () {
-    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(storeDispatch) {
+    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatchFunction) {
       var res, action;
       return regenerator_default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios_default.a.get("https://restcountries.eu/rest/v2");
+              return axios_default.a.get("https://restcountries.com/v2/all");
 
             case 2:
               res = _context.sent;
@@ -8759,7 +8759,7 @@ var demoListActions_actionCreators = function actionCreators() {
                 type: 'RECEIVE_DEMO_LIST',
                 payload: res.data
               };
-              storeDispatch(action);
+              dispatchFunction(action);
 
             case 5:
             case "end":
@@ -8878,7 +8878,7 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
   			axios({
   				timeout: 15000,
   				method: 'get',
-  				url: `https://restcountries.eu/rest/v2`,
+  				url: `https://restcountries.com/v2/all`,
   				responseType: 'json'
   			}).then(function (response) {
   				resolve( response );
@@ -8918,26 +8918,18 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
 
   createClass_default()(Posts, [{
     key: "componentDidMount",
-    value:
-    /**
-     * componentDidMount() is invoked immediately after a component 
-     * is mounted (inserted into the tree). 
-     * Initialization that requires DOM nodes should go here. 
-     * If you need to load data from a remote endpoint, this 
-     * is a good place to instantiate the network request.
-     */
-    function componentDidMount() {
-      //Receive contentInformation redux from the parent page
+    value: function componentDidMount() {
+      //Receive redux from the parent page
       console.log('[posts list]this.props:');
       console.log(this.props);
-      var contentInformation = this.props.contentInformation; // Request data
+      var contentInformation = this.props.contentInformation; //from `mapDispatchToProps()`
 
-      contentInformation(demoListActions());
+      this.props.actionCreators();
     }
   }, {
     key: "render",
     value: function render() {
-      // Bind data and display
+      //from `mapStateToProps()`
       var preloadedState = this.props.currentData; //loader
 
       var isLoaded = false;
@@ -8968,26 +8960,34 @@ var Posts_Posts = /*#__PURE__*/function (_Component) {
   }]);
 
   return Posts;
-}(react["Component"]); // Subscribe to the required state in the reducers is bound 
-// here (for details of the data structure: initState)
+}(react["Component"]); // Subscribe to the required state in the reducers is bound here (for details of the data structure: initState)
+// You can call it in `this.props`
 
 
-var Posts_mapStateToProps = function mapStateToProps(storeState) {
+var Posts_mapStateToProps = function mapStateToProps(state) {
+  var listData = state.listData; //Receive redux
+
   return {
-    currentData: storeState.listData.items //Receive redux
-
+    currentData: listData.items
   };
-}; // Bind the introduced Actions
+}; // Bind the introduced Actions. You will normally make use of this by returning new functions that call `dispatch()` inside themselves
+// You can call it in `this.props`
+
+/*
+Like this:
+const mapDispatchToProps = (dispatch) => {
+	return {
+		increment: () => dispatch({ type: 'INCREMENT' }),
+		decrement: () => dispatch({ type: 'DECREMENT' }),
+	}
+}
+*/
 
 
-var Posts_mapDispatchToProps = function mapDispatchToProps(storeDispatch) {
-  return {
-    contentInformation: storeDispatch //Throw redux
-
-  };
+var Posts_mapDispatchToProps = {
+  actionCreators: demoListActions
 }; // The most important step is to bind the required Reducer and Actions to the current page 
 // through the connect function provided by react-redux
-
 
 /* harmony default export */ var _pages_Posts = (connect_connect(Posts_mapStateToProps, Posts_mapDispatchToProps)(Posts_Posts));
 // CONCATENATED MODULE: ./src/client/actions/demoListDetailActions.js
@@ -8999,14 +8999,14 @@ var demoListDetailActions_actionCreators = function actionCreators(id) {
   // The function defined by async will return the value of a `Promise()` object resolve by default, 
   // so the `then()` can be used directly, and the returned value is the params of the `then()`
   return /*#__PURE__*/function () {
-    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(storeDispatch) {
+    var _ref = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(dispatchFunction) {
       var res, action;
       return regenerator_default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios_default.a.get("https://restcountries.eu/rest/v2/name/".concat(id));
+              return axios_default.a.get("https://restcountries.com/v2/name/".concat(id));
 
             case 2:
               res = _context.sent;
@@ -9016,7 +9016,7 @@ var demoListDetailActions_actionCreators = function actionCreators(id) {
                 type: 'RECEIVE_DEMO_LISTDETAIL',
                 payload: res.data
               };
-              storeDispatch(action);
+              dispatchFunction(action);
 
             case 5:
             case "end":
@@ -9092,7 +9092,7 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
   				axios({
   					timeout: 15000,
   					method: 'get',
-  					url: `https://restcountries.eu/rest/v2/name/${currentID}`,
+  					url: `https://restcountries.com/v2/name/${currentID}`,
   					responseType: 'json'
   				}).then(function (response) {
   					resolve( response );
@@ -9136,26 +9136,17 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
 
   createClass_default()(PostDetail, [{
     key: "componentDidMount",
-    value:
-    /**
-     * componentDidMount() is invoked immediately after a component 
-     * is mounted (inserted into the tree). 
-     * Initialization that requires DOM nodes should go here. 
-     * If you need to load data from a remote endpoint, this 
-     * is a good place to instantiate the network request.
-     */
-    function componentDidMount() {
-      //Receive contentInformation redux from the parent page
+    value: function componentDidMount() {
+      //Receive redux from the parent page
       console.log('[detail of post]this.props:');
-      console.log(this.props);
-      var contentInformation = this.props.contentInformation; // Request data
+      console.log(this.props); //from `mapDispatchToProps()`
 
-      contentInformation(demoListDetailActions(this.props.match.params.post_id));
+      this.props.actionCreators(this.props.match.params.post_id);
     }
   }, {
     key: "render",
     value: function render() {
-      // Bind data and display
+      //from `mapStateToProps()`
       var preloadedState = this.props.currentData; //loader
 
       var isLoaded = false;
@@ -9208,26 +9199,34 @@ var PostDetail_PostDetail = /*#__PURE__*/function (_Component) {
   }]);
 
   return PostDetail;
-}(react["Component"]); // Subscribe to the required state in the reducers is bound 
-// here (for details of the data structure: initState)
+}(react["Component"]); // Subscribe to the required state in the reducers is bound here (for details of the data structure: initState)
+// You can call it in `this.props`
 
 
-var PostDetail_mapStateToProps = function mapStateToProps(storeState) {
+var PostDetail_mapStateToProps = function mapStateToProps(state) {
+  var listDetailData = state.listDetailData; //Receive redux
+
   return {
-    currentData: storeState.listDetailData.detail //Receive redux
-
+    currentData: listDetailData.detail
   };
-}; // Bind the introduced Actions
+}; // Bind the introduced Actions. You will normally make use of this by returning new functions that call `dispatch()` inside themselves
+// You can call it in `this.props`
+
+/*
+Like this:
+const mapDispatchToProps = (dispatch) => {
+	return {
+		increment: () => dispatch({ type: 'INCREMENT' }),
+		decrement: () => dispatch({ type: 'DECREMENT' }),
+	}
+}
+*/
 
 
-var PostDetail_mapDispatchToProps = function mapDispatchToProps(storeDispatch) {
-  return {
-    contentInformation: storeDispatch //Throw redux
-
-  };
+var PostDetail_mapDispatchToProps = {
+  actionCreators: demoListDetailActions
 }; // The most important step is to bind the required Reducer and Actions to the current page 
 // through the connect function provided by react-redux
-
 
 /* harmony default export */ var Posts_PostDetail = (connect_connect(PostDetail_mapStateToProps, PostDetail_mapDispatchToProps)(PostDetail_PostDetail));
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
