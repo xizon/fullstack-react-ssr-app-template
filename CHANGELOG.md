@@ -1,7 +1,7 @@
 # Changelog
 
 
-#### = 0.0.2 (October 13, 2021) =
+#### = 0.1.0 (October 13, 2021) =
 
 * Tweak: Optimized redux patterns for ensuring good performance.
 * Tweak: Changed the test API of Posts.
