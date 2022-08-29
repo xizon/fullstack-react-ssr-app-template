@@ -9,7 +9,6 @@
   "description": "This repository is a full-stack sample web application based on React+TypeScript+Babel+Webpack+Jest (+Redux+Express) that creates a simple whole-website architecture with Server-Side Rendering (SSR).",
   "main": "webpack.config.js",
   "directories": {
-    "example": "public",
     "test": "test"
   },
   "proxy": "http://localhost:3000",
