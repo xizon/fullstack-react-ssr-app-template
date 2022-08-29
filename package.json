@@ -1,57 +1,82 @@
 {
   "author": "UIUX Lab",
-  "name": "react-app-ssr-starter",
+  "name": "fullstack-react-ssr-app-template",
   "email": "uiuxlab@gmail.com",
-  "projectName": "React App SSR Starter",
+  "projectName": "Full-Stack React SSR Application Template",
   "createdInfo": "UIUX Lab (https://uiux.cc)",
   "projectURL": "https://uiux.cc",
-  "version": "0.1.0",
-  "description": "Using react, redux, router, axios and express with Server-Side Rendering (SSR).",
+  "version": "0.1.1",
+  "description": "This repository is a full-stack sample web application based on React+TypeScript+Babel+Webpack+Jest (+Redux+Express) that creates a simple whole-website architecture with Server-Side Rendering (SSR).",
   "main": "webpack.config.js",
   "directories": {
-    "example": "public"
+    "example": "public",
+    "test": "test"
   },
   "proxy": "http://localhost:3000",
   "scripts": {
     "watch": "webpack --watch",
-    "dev": "nodemon --require ignore-styles --exec babel-node ./src/server/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon --require ignore-styles --exec ts-node -r tsconfig-paths/register ./src/server/server.js",
     "build": "webpack --progress --mode production",
-    "prettier": "prettier \"./dist/css/app.css\""
+    "prettier": "prettier \"./dist/css/app.css\"",
+    "test": "cross-env NODE_ENV=test jest"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+      "^@/components/(.*)": "<rootDir>/src/client/components/$1"
+    },
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      "^.+\\.(ts|tsx)?$": "ts-jest"
+    }
   },
   "repository": {
     "type": "git",
-    "url": "react-app-ssr-starter"
+    "url": "fullstack-react-ssr-app-template"
   },
   "keywords": [
     "react",
     "axios",
     "route",
     "ssr",
+    "server-side-rendering",
     "express",
-    "webdesign",
     "webpack",
-    "redux"
+    "redux",
+    "typescript",
+    "front-end",
+    "scaffold",
+    "template"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xizon/react-app-ssr-starter/issues"
+    "url": "https://github.com/xizon/fullstack-react-ssr-app-template/issues"
   },
-  "homepage": "https://github.com/xizon/react-app-ssr-starter#readme",
+  "homepage": "https://github.com/xizon/fullstack-react-ssr-app-template#readme",
   "devDependencies": {
-    "@node-minify/core": "^4.0.2",
-    "@node-minify/uglify-js": "^4.0.2",
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.0.1",
+    "cross-env": "^7.0.3",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "file-loader": "^6.2.0",
     "html-loader": "^0.5.5",
     "include-file-webpack-plugin": "^1.0.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.0.4",
+    "jsdom": "^16.6.0",
     "json-loader": "^0.5.7",
     "log-timestamp": "^0.2.1",
     "mime-types": "^2.1.29",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss": "^8.3.6",
     "prettier": "^1.15.3",
     "prettier-loader": "^2.1.1",
     "random-string": "^0.2.0",
@@ -59,15 +84,17 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "tar": "^4.4.8",
-    "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack": "^4.27.0",
-    "webpack-cli": "^3.1.2",
+    "terser-webpack-plugin": "^5.1.4",
+    "ts-jest": "^27.0.4",
+    "ts-node": "^10.1.0",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5",
+    "webpack": "^5.47.1",
+    "webpack-cli": "^3.3.12",
     "webpack-concat-plugin": "^3.0.0",
-    "webpack-dev-middleware": "^3.4.0",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-middleware": "^3.4.0"
   },
   "dependencies": {
-    "babel-plugin-module-resolver": "^4.1.0",
     "@babel/core": "^7.13.14",
     "@babel/node": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
@@ -78,19 +105,24 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@babel/register": "^7.13.14",
-    "moment": "^2.23.0",
+    "@types/react": "^17.0.17",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
     "axios": "^0.21.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "ignore-styles": "^5.0.1",
+    "babel-plugin-module-resolver": "^4.1.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "ignore-styles": "^5.0.1",
+    "moment": "^2.23.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
     "react-router-config": "^5.1.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "peerDependencies": {
     "react": "^17.0.2",
@@ -100,12 +132,27 @@
     "printWidth": 120,
     "tabWidth": 4,
     "semi": true,
-    "singleQuote": true,
-    "trailingComma": "none",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "arrowParens": "avoid",
-    "requirePragma": false,
-    "proseWrap": "preserve"
+    "trailingComma": "all",
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser",
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "extends": [
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {},
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
   }
 }

@@ -1,15 +1,2 @@
-/*!
- * 
- * DO NOT OVERRIDE THIS FILE.
- * Generated with "npm run build"
- * 
- * ## Project Name        :  React App SSR Starter
- * ## Project Description :  Using react, redux, router, axios and express with Server-Side Rendering (SSR).
- * ## Project URL         :  https://uiux.cc
- * ## Version             :  0.0.2
- * ## Based on            :  React App SSR Starter (https://github.com/xizon/react-app-ssr-starter#readme)
- * ## Last Update         :  October 13, 2021
- * ## Created by          :  UIUX Lab (https://uiux.cc) (uiuxlab@gmail.com)
- * ## Released under the MIT license.
- * 	
- */button{border:0;margin:5px;border-radius:3px;padding:5px 15px}button:hover{filter:Invert()}
+button{border:0;border-radius:3px;margin:5px;padding:5px 15px}button:hover{filter:Invert()}
+/*# sourceMappingURL=app.min.css.map*/

@@ -1,5 +1,12 @@
 # Changelog
 
+#### = 0.1.1 (August 29, 2022) =
+
+* Tweak: Optimized TypeScript interfaces and types in components.
+* Tweak: Optimize webpack configuration.
+* Tweak: Upgrade Node dependencies.
+
+
 
 #### = 0.1.0 (October 13, 2021) =
 

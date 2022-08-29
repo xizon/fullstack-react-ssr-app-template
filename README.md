@@ -1,12 +1,8 @@
-# React App SSR Starter
+# Full-Stack React SSR Application Template
 
+This repository is a full-stack sample web application based on React+TypeScript+Babel+Webpack+Jest (+Redux+Express) that creates a simple whole-website architecture with Server-Side Rendering (SSR), and provides the foundational services, components, and plumbing needed to get a basic web application up and running. 
 
-[![Travis CI](https://img.shields.io/travis/xizon/react-app-ssr-starter/master?style=for-the-badge)](https://travis-ci.org/xizon/react-app-ssr-starter/)
-[![npm version](https://img.shields.io/npm/v/react-app-ssr-starter?style=for-the-badge)](https://www.npmjs.com/package/react-app-ssr-starter)
-[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=for-the-badge)](LICENSE)
-
-
-
+    
 ## Demo
 
 Server runs on `http://localhost:3000`
@@ -23,37 +19,28 @@ Server runs on `http://localhost:3000`
 * [Licensing](#licensing)
 
 
-
-## Description
-
-Using react, redux, router, axios and express with Server-Side Rendering (SSR). This project was bootstrapped with nodejs library. Project supports automatic deployments from a number of repository hosting services via pm2.
-
-
-* * *
-
-
 ## Installation And Test
 
 You will need to have [node](https://nodejs.org/) setup on your machine. That will output the built distributables to `./dist/*` and `./public/*.html`.
 
 
-**Step 1.** Use NPM (Locate your current directory of project, and enter the following command.) or download the latest version from [Github](https://github.com/xizon/react-app-ssr-starter). For nodejs you have to install some dependencies.
+**Step 1.** Use NPM (Locate your current directory of project, and enter the following command.) or download the latest version from [Github](https://github.com/xizon/fullstack-react-ssr-app-template). For nodejs you have to install some dependencies.
 
 ```sh
-$ sudo npm install react-app-ssr-starter
+$ sudo npm install fullstack-react-ssr-app-template
 ```
 
 Or clone the repo to get all source files including build scripts: 
 
 ```sh
-$ git clone git://github.com/xizon/react-app-ssr-starter.git
+$ git clone git://github.com/xizon/fullstack-react-ssr-app-template.git
 ```
 
 
-**Step 2.** First, using an absolute path into your `"react-app-ssr-starter/"` folder directory.
+**Step 2.** First, using an absolute path into your `"fullstack-react-ssr-app-template/"` folder directory.
 
 ```sh
-$ cd /{your_directory}/react-app-ssr-starter
+$ cd /{your_directory}/fullstack-react-ssr-app-template
 ```
 
 
@@ -120,8 +107,8 @@ $ sudo npm install -g @babel/core @babel/cli @babel/preset-env
 8.4) Frequently used commands for PM2:
 
 ```sh
-#into your `"react-app-ssr-starter/"` folder directory.
-$ cd /{your_directory}/react-app-ssr-starter
+#into your `"fullstack-react-ssr-app-template/"` folder directory.
+$ cd /{your_directory}/fullstack-react-ssr-app-template
 
 
 #use babel-node with pm2
@@ -140,6 +127,13 @@ $ pm2 logs
 
 You had created a basic React App from here, then you need to deploy a React App on Apache or Nginx web server. Please refer to the network for the tutorial on setting up the proxy.
 
+
+
+**Step 9 (Optional).** Unit Testing
+
+```sh
+$ npm run test
+```
 
 
 
@@ -169,7 +163,7 @@ $ sudo npm rebuild node-sass
 
 ```sh
 
-react-app-ssr-starter/
+fullstack-react-ssr-app-template/
 ├── README.md
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
@@ -179,6 +173,7 @@ react-app-ssr-starter/
 ├── webpack.config.js
 ├── package-lock.json
 ├── package.json
+├── test/
 ├── public/
 │   ├── index.html
 │   └── assets/
@@ -222,6 +217,14 @@ Finding bugs, sending pull requests or improving our docs - any contribution is 
 ## Changelog
 
 [releases](CHANGELOG.md)
+
+
+## Supported development environment
+
+- Supports React 17 +
+- Supports TypeScript 4.x.x + 
+- Supports Babel 7.x.x + 
+- Supports Webpack 5.x.x
 
 
 

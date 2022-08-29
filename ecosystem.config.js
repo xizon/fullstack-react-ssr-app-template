@@ -2,7 +2,7 @@ module.exports = {
   "apps": [
     {
       //App name
-      "name": "react-app-ssr-starter",
+      "name": "fullstack-react-ssr-app-template",
       //The path of the executable file
       "script": "./src/server/server.js",
       "env": {
@@ -23,9 +23,9 @@ module.exports = {
       "port": "3000",
       "ref": "origin/master",
       //git ssh
-      "repo": "https://github.com/xizon/react-app-ssr-starter.git",
+      "repo": "https://github.com/xizon/fullstack-react-ssr-app-template.git",
       //project destination path of the server
-      "path": "/Applications/MAMP/htdocs/react-app-ssr-starter",
+      "path": "/Applications/MAMP/htdocs/fullstack-react-ssr-app-template",
       //hook
       'post-deploy' : 'npm install && npm run build && pm2 reload ecosystem.config.js --env production',
       "env": {
