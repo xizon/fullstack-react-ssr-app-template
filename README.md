@@ -78,7 +78,9 @@ The new code is recommended to be bundled before debugging.
 
 **Step 8 (Optional).** Start Reactjs application with PM2 as a service (only works if you are using Node v13.9.0 or above.)
 
-8.1) Installing Node and NPM
+8.1) Installing Node and NPM on hosting server **(Optional).**
+
+Node14+ version will be installed here
 
 ```sh
 $ curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
