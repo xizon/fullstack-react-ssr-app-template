@@ -223,10 +223,12 @@ Finding bugs, sending pull requests or improving our docs - any contribution is 
 
 ## Supported development environment
 
-- Supports React 17 +
-- Supports TypeScript 4.x.x + 
-- Supports Babel 7.x.x + 
-- Supports Webpack 5.x.x
+- React 17 +
+- TypeScript 4.x.x + 
+- Babel 7.x.x + 
+- Webpack 5.x.x
+- Jest 27.x.x
+- Express 4.x.x
 
 
 
