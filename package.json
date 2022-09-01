@@ -5,7 +5,7 @@
   "projectName": "Full-Stack React SSR Application Template",
   "createdInfo": "UIUX Lab (https://uiux.cc)",
   "projectURL": "https://uiux.cc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This repository is a full-stack sample web application based on React+TypeScript+Babel+Webpack+Jest (+Redux+Express) that creates a simple whole-website architecture with Server-Side Rendering (SSR).",
   "main": "webpack.config.js",
   "directories": {
@@ -14,8 +14,9 @@
   "proxy": "http://localhost:3000",
   "scripts": {
     "watch": "webpack --watch",
+    "check": "tsc",
     "dev": "cross-env NODE_ENV=development nodemon --require ignore-styles --exec ts-node -r tsconfig-paths/register ./src/server/server.js",
-    "build": "webpack --progress --mode production",
+    "build": "cross-env NODE_ENV=production tsc & webpack --progress --mode production",
     "prettier": "prettier \"./dist/css/app.css\"",
     "test": "cross-env NODE_ENV=test jest"
   },

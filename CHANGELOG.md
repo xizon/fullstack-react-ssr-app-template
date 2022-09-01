@@ -1,5 +1,10 @@
 # Changelog
 
+#### = 0.1.2 (September 1, 2022) =
+
+* Tweak: Added solutions to problems that may occur when deploying the application on cloud server.
+
+
 #### = 0.1.1 (August 29, 2022) =
 
 * Tweak: Optimized TypeScript interfaces and types in components.
